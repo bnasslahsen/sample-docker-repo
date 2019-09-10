@@ -11,7 +11,6 @@ node {
     docker.image('openjdk:8').inside('-u root -e MAVEN_OPTS="-Duser.home=./"') {
         stage('check java') {
             sh "java -version"
-            sh "echo $user $pass"
         }
 
         stage('clean') {
@@ -20,7 +19,7 @@ node {
         }
 
         stage('packaging and docker Image') {
-            sh "./mvnw package -Djib.to.auth.username=$user -Djib.to.auth.password=$pass -DskipTests"
+            sh "./mvnw package -X -Djib.to.auth.username=$user -Djib.to.auth.password=$pass -DskipTests"
             archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
         }
     }
