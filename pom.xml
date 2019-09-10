@@ -19,27 +19,7 @@
 	</properties>
 
 	<build>
-		<plugins>
-		                <plugin>
-                    <groupId>com.google.cloud.tools</groupId>
-                    <artifactId>jib-maven-plugin</artifactId>
-                    <version>${jib-maven-plugin.version}</version>
-					<executions>
-                            <execution>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>build</goal>
-                                </goals>
-                            </execution>
-                    </executions>
-                    <configuration>
-                        <to>
-                            <image>registry.hub.docker.com/bnasslahsen/jenkins-repo</image>
-                        </to>
-                    </configuration>
-                </plugin>
-
-				
+		<plugins>				
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
