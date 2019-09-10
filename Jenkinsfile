@@ -19,7 +19,7 @@ node {
         }
 
         stage('packaging and docker Image') {
-            sh "./mvnw package -Pprod -Djib.to.auth.username=$user -Djib.to.auth.password=$pass -DskipTests"
+            sh "./mvnw package -Djib.to.auth.username=$user -Djib.to.auth.password=$pass -DskipTests"
             archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
         }
     }
