@@ -28,7 +28,7 @@ spec:
         run: poc-archi-kube
     spec:
       containers:
-      - image: us.icr.io/poc-archi-logi-registry/hello-containers-20190910230748396:13-master-66bceac2-20190911003916
+      - image: us.icr.io/poc-archi-logi-registry/hello-containers-20190910230748396:latest
         imagePullPolicy: IfNotPresent
         name: poc-archi-kube
         resources: {}
