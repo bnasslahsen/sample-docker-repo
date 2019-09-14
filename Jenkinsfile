@@ -39,7 +39,6 @@ node {
 
     def dockerImage
     stage('build docker') {
-        sh "cp -R src/main/docker target/"
         sh "cp target/*.war target/docker/"
         dockerImage = docker.build('bnasslahsen/jenkins-repo', 'target/docker')
     }
