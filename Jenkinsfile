@@ -42,7 +42,7 @@ node {
         sh "sudo cp -R ddd-sample-exposition/src/main/docker target/"
         sh "sudo cp ddd-sample-exposition/target/*.war target/"
 
-        dockerImage = docker.build('bnasslahsen/jenkins-repo', 'target/docker')
+        dockerImage = docker.build('bnasslahsen/jenkins-repo', 'target')
     }
 
     stage('publish docker') {
