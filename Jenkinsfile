@@ -39,7 +39,7 @@ node {
 
     def dockerImage
     stage('build docker') {
-        sh "cp -R ddd-sample-exposition/src/main/docker/Dockerfile ddd-sample-exposition/target/"
+        sh "sudo cp -R ddd-sample-exposition/src/main/docker/Dockerfile ddd-sample-exposition/target/"
         dockerImage = docker.build('bnasslahsen/jenkins-repo', 'ddd-sample-exposition/target/')
     }
 
