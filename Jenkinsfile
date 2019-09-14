@@ -4,11 +4,7 @@ node {
     stage('checkout') {
         checkout scm
     }
-
-   withCredentials([usernamePassword(credentialsId: 'docker-login', passwordVariable: 'pass', usernameVariable: 'user')]) {
-    // the code in here can access $pass and $user
-
-    docker.image('openjdk:8').inside('-u root -v /root/.m2:/root/.m2 -e MAVEN_OPTS="-Duser.home=./"') {
+    docker.image('jhipster/jhipster:v5.3.1').inside('-u root -v /root/.m2:/root/.m2 -e MAVEN_OPTS="-Duser.home=./"') {
         stage('check java') {
             sh "java -version"
         }
@@ -18,10 +14,41 @@ node {
             sh "./mvnw clean"
         }
 
-        stage('packaging and docker Image') {
-            sh "./mvnw package -Djib.to.auth.username=$user -Djib.to.auth.password=$pass -DskipTests"
+        stage('backend tests') {
+            try {
+                sh "./mvnw test"
+            } catch(err) {
+                throw err
+            } finally {
+                junit '**/target/surefire-reports/TEST-*.xml'
+            }
+        }
+
+        stage('packaging') {
+            sh "./mvnw verify -Pprod -DskipTests"
             archiveArtifacts artifacts: '**/target/*.war', fingerprint: true
         }
+        
+/*         stage('quality analysis') {
+            withSonarQubeEnv('sonar') {
+                sh "./mvnw sonar:sonar"
+            }
+        }*/
+        
     }
-  }
+
+    def dockerImage
+    stage('build docker') {
+        sh "cp -R src/main/docker target/"
+        sh "cp target/*.war target/docker/"
+        dockerImage = docker.build('bnasslahsen/jenkins-repo', 'target/docker')
+    }
+
+    stage('publish docker') {
+        docker.withRegistry('https://registry.hub.docker.com', 'docker-login') {
+            dockerImage.push 'latest'
+        }
+    }
+    
+    
 }
