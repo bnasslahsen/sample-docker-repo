@@ -8,11 +8,9 @@ node {
    withCredentials([usernamePassword(credentialsId: 'docker-login', passwordVariable: 'pass', usernameVariable: 'user')]) {
     // the code in here can access $pass and $user
 
-    docker.image('openjdk:8').inside('-u root -e MAVEN_OPTS="-Duser.home=./"') {
+    docker.image('openjdk:8').inside('-u root -v /root/.m2:/root/.m2 -e MAVEN_OPTS="-Duser.home=./"') {
         stage('check java') {
             sh "java -version"
-            sh "echo $user"
-            sh "echo $pass"
         }
 
         stage('clean') {
