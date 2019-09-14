@@ -25,7 +25,7 @@ node {
         }
 
         stage('packaging') {
-            sh "./mvnw verify -Pprod -DskipTests"
+            sh "./mvnw package -DskipTests"
             archiveArtifacts artifacts: '**/target/*.war', fingerprint: true
         }
         
