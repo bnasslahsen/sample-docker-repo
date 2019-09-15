@@ -23,16 +23,16 @@ node {
                 junit '**/target/surefire-reports/TEST-*.xml'
             }
         }
-
-        stage('packaging') {
-            sh "./mvnw package -DskipTests"
-            archiveArtifacts artifacts: '**/target/*.war', fingerprint: true
-        }
         
          stage('quality analysis') {
             withSonarQubeEnv('Sonar') {
                 sh "./mvnw sonar:sonar"
             }
+        }
+        
+        stage('packaging') {
+            sh "./mvnw package -DskipTests"
+            archiveArtifacts artifacts: '**/target/*.war', fingerprint: true
         }
         
     }
