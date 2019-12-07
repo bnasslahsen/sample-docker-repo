@@ -32,7 +32,7 @@ node {
         
         stage('packaging') {
             sh "./mvnw package -DskipTests"
-            archiveArtifacts artifacts: '**/target/*.war', fingerprint: true
+            archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
         }
         
     }
@@ -40,7 +40,7 @@ node {
     def dockerImage
     stage('build docker') {
         sh "sudo cp -R ddd-sample-exposition/src/main/docker/Dockerfile target/"
-        sh "sudo cp ddd-sample-exposition/target/*.war target/"
+        sh "sudo cp ddd-sample-exposition/target/*.jar target/"
 
         dockerImage = docker.build('bnasslahsen/jenkins-repo', 'target')
     }
