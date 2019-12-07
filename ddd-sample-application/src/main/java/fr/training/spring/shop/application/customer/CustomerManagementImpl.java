@@ -26,7 +26,7 @@ public class CustomerManagementImpl implements CustomerManagement {
 
 	@Override
 	public CustomerDTO findOne(String customerID) {
-		CustomerEntity customerEntity = customerRepository.findOne(customerID);
+		CustomerEntity customerEntity = customerRepository.getOne(customerID);
 		return customeEntityMapper.toDto(customerEntity);
 	}
 

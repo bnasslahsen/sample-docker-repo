@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    kubernetes:
+      enabled: true
+dekorate:
+  kubernetes:
+    serviceType: "NodePort"

@@ -38,7 +38,7 @@ public class CustomerManagementImplTest {
 	public void testFindOne() {
 		CustomerEntity customerEntity = new CustomerEntity("NAME1", "PASS1");
 		customerEntity.setId("123e4567-e89b-42d3-a456-556642440000");
-		when(customerRepository.findOne("123e4567-e89b-42d3-a456-556642440000")).thenReturn(customerEntity);
+		when(customerRepository.getOne("123e4567-e89b-42d3-a456-556642440000")).thenReturn(customerEntity);
 		CustomerDTO customerResultDTO = customerManagement.findOne("123e4567-e89b-42d3-a456-556642440000");
 		assertEquals("NAME1", customerResultDTO.getName());
 	}

@@ -7,5 +7,10 @@ spring:
   datasource:
     url: jdbc:hsqldb:mem:dataSource
     username: sa
-    password: 
-    driver-class-name: org.hsqldb.jdbcDriver
+    password:
+#Monitoring endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health
