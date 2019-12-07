@@ -17,24 +17,24 @@ node {
         stage('backend tests') {
             try {
                 sh "./mvnw test"
-            } catch(err) {
+            } catch (err) {
                 throw err
             } finally {
                 junit '**/target/surefire-reports/TEST-*.xml'
             }
         }
-        
-         stage('quality analysis') {
+
+        stage('quality analysis') {
             withSonarQubeEnv('Sonar') {
                 sh "./mvnw sonar:sonar"
             }
         }
-        
+
         stage('packaging') {
             sh "./mvnw package -DskipTests"
             archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
         }
-        
+
     }
 
     def dockerImage
@@ -50,6 +50,6 @@ node {
             dockerImage.push 'latest'
         }
     }
-    
-    
+
+
 }

@@ -18,40 +18,40 @@ import java.util.stream.Collectors;
 @Transactional
 public class OrderManagementImpl implements OrderManagement {
 
-	@Autowired
-	private OrderRepository orderRepository;
+    @Autowired
+    private OrderRepository orderRepository;
 
-	@Autowired
-	private CustomerRepository customerRepository;
+    @Autowired
+    private CustomerRepository customerRepository;
 
-	@Autowired
-	private ItemRepository itemRepository;
+    @Autowired
+    private ItemRepository itemRepository;
 
-	@Autowired
-	private OrderMapper orderMapper;
+    @Autowired
+    private OrderMapper orderMapper;
 
-	@Override
-	public List<OrderDTO> getOrdersForCustomer(String customerID) {
-		List<OrderEntity> orderEntity = orderRepository.getOrdersForCustomer(customerID);
-		return orderMapper.toDto(orderEntity);
-	}
+    @Override
+    public List<OrderDTO> getOrdersForCustomer(String customerID) {
+        List<OrderEntity> orderEntity = orderRepository.getOrdersForCustomer(customerID);
+        return orderMapper.toDto(orderEntity);
+    }
 
-	@Override
-	public OrderDTO addOrder(OrderDTO orderDTO) {
-		OrderEntity orderEntity = orderMapper.toEntity(orderDTO);
-		CustomerEntity customerEntity = customerRepository.getOne(orderDTO.getCustomerID());
-		List<ItemEntity> items = itemRepository
-				.findByIdIn(orderDTO.getItems().stream().map(ItemDTO::getItemID).collect(Collectors.toList()));
-		orderEntity.setCustomer(customerEntity);
-		orderEntity.setItems(items);
-		orderEntity = orderRepository.save(orderEntity);
-		return orderMapper.toDto(orderEntity);
-	}
+    @Override
+    public OrderDTO addOrder(OrderDTO orderDTO) {
+        OrderEntity orderEntity = orderMapper.toEntity(orderDTO);
+        CustomerEntity customerEntity = customerRepository.getOne(orderDTO.getCustomerID());
+        List<ItemEntity> items = itemRepository
+                .findByIdIn(orderDTO.getItems().stream().map(ItemDTO::getItemID).collect(Collectors.toList()));
+        orderEntity.setCustomer(customerEntity);
+        orderEntity.setItems(items);
+        orderEntity = orderRepository.save(orderEntity);
+        return orderMapper.toDto(orderEntity);
+    }
 
-	@Override
-	public OrderDTO findOne(String orderID) {
-		OrderEntity orderEntity = orderRepository.getOne(orderID);
-		return orderMapper.toDto(orderEntity);
-	}
+    @Override
+    public OrderDTO findOne(String orderID) {
+        OrderEntity orderEntity = orderRepository.getOne(orderID);
+        return orderMapper.toDto(orderEntity);
+    }
 
 }

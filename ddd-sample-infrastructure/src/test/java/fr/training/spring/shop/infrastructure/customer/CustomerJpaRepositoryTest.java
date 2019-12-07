@@ -14,23 +14,23 @@ import static org.junit.Assert.assertNotNull;
 @DataJpaTest
 public class CustomerJpaRepositoryTest {
 
-	@Autowired
-	private CustomerRepository customerRepository;
+    @Autowired
+    private CustomerRepository customerRepository;
 
-	@Test
-	public void testFindOne() {
-		CustomerEntity customerEntity = customerRepository.findById("123e4567-e89b-42d3-a456-556642440000").get();
-		assertNotNull(customerEntity);
-		assertEquals("NAME1", customerEntity.getName());
-	}
+    @Test
+    public void testFindOne() {
+        CustomerEntity customerEntity = customerRepository.findById("123e4567-e89b-42d3-a456-556642440000").get();
+        assertNotNull(customerEntity);
+        assertEquals("NAME1", customerEntity.getName());
+    }
 
-	@Test
-	public void testCreateAndFind() {
-		CustomerEntity customer = new CustomerEntity("nass", "123456");
-		customerRepository.save(customer);
-		CustomerEntity customerCreated = customerRepository.findById(customer.getId()).get();
-		assertNotNull(customerCreated);
-		assertEquals("nass", customerCreated.getName());
-	}
+    @Test
+    public void testCreateAndFind() {
+        CustomerEntity customer = new CustomerEntity("nass", "123456");
+        customerRepository.save(customer);
+        CustomerEntity customerCreated = customerRepository.findById(customer.getId()).get();
+        assertNotNull(customerCreated);
+        assertEquals("nass", customerCreated.getName());
+    }
 
 }

@@ -4,8 +4,8 @@ import java.util.List;
 
 public interface ItemManagement {
 
-	List<ItemDTO> getAllItems();
+    List<ItemDTO> getAllItems();
 
-	ItemDTO addItem(ItemDTO itemDTO);
+    ItemDTO addItem(ItemDTO itemDTO);
 
 }

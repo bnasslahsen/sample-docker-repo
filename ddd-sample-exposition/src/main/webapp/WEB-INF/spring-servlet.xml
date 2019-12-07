@@ -1,7 +1,8 @@
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="
+<beans xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="
         http://www.springframework.org/schema/beans     
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/mvc 
@@ -10,9 +11,9 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 
 
-	<import resource="classpath:/spring/applicationContext.xml" />
-	<context:component-scan base-package="fr.training.spring.shop.ws" />
-	<mvc:annotation-driven />
+    <import resource="classpath:/spring/applicationContext.xml"/>
+    <context:component-scan base-package="fr.training.spring.shop.ws"/>
+    <mvc:annotation-driven/>
 
 
 </beans>

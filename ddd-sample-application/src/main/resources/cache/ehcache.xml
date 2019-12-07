@@ -2,7 +2,7 @@
 <!DOCTYPE project>
 <ehcache updateCheck="false" monitoring="autodetect" dynamicConfig="true">
 
-  <cacheManagerEventListenerFactory class="" properties="" />
+    <cacheManagerEventListenerFactory class="" properties=""/>
     <defaultCache
             maxElementsInMemory="10000"
             eternal="false"
@@ -14,17 +14,16 @@
             diskPersistent="false"
             diskExpiryThreadIntervalSeconds="120"
             memoryStoreEvictionPolicy="LRU"
-            />
+    />
 
     <cache name="itemCache"
-            maxElementsInMemory="10000"
-            eternal="false"
-            timeToLiveSeconds="1200"
-            overflowToDisk="false"
-            diskPersistent="false"
-            diskExpiryThreadIntervalSeconds="120"
-            memoryStoreEvictionPolicy="LRU"/>
-            
-            
+           maxElementsInMemory="10000"
+           eternal="false"
+           timeToLiveSeconds="1200"
+           overflowToDisk="false"
+           diskPersistent="false"
+           diskExpiryThreadIntervalSeconds="120"
+           memoryStoreEvictionPolicy="LRU"/>
+
 
 </ehcache>

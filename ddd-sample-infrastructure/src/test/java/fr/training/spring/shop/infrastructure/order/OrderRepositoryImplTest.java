@@ -23,46 +23,46 @@ import static org.junit.Assert.assertNotNull;
 @DataJpaTest
 public class OrderRepositoryImplTest {
 
-	@Autowired
-	private OrderRepository orderRepository;
+    @Autowired
+    private OrderRepository orderRepository;
 
-	@Autowired
-	private ItemRepository itemRepository;
+    @Autowired
+    private ItemRepository itemRepository;
 
-	@Autowired
-	private CustomerRepository customerRepository;
+    @Autowired
+    private CustomerRepository customerRepository;
 
-	@Test
-	public void testGetOrdersForCustomer() {
-		List<OrderEntity> orders = orderRepository.getOrdersForCustomer("123e4567-e89b-42d3-a456-556642440000");
-		assertNotNull(orders);
-		assertEquals(2, orders.size());
-	}
+    @Test
+    public void testGetOrdersForCustomer() {
+        List<OrderEntity> orders = orderRepository.getOrdersForCustomer("123e4567-e89b-42d3-a456-556642440000");
+        assertNotNull(orders);
+        assertEquals(2, orders.size());
+    }
 
-	@Test
-	public void testAddOrder() {
-		OrderEntity orderEntity = this.createOrder("123e4567-e89b-42d3-a456-556642440000", "1", 99);
-		orderRepository.save(orderEntity);
-		assertNotNull(orderEntity.getId());
-	}
+    @Test
+    public void testAddOrder() {
+        OrderEntity orderEntity = this.createOrder("123e4567-e89b-42d3-a456-556642440000", "1", 99);
+        orderRepository.save(orderEntity);
+        assertNotNull(orderEntity.getId());
+    }
 
-	@Test
-	public void testAddOrders() {
-		OrderEntity orderEntity1 = this.createOrder("123e4567-e89b-42d3-a456-556642440000", "1", 99);
-		OrderEntity orderEntity2 = this.createOrder("123e4567-e89b-42d3-a456-556642440000", "2", 99);
-		List<OrderEntity> orders = Stream.of(orderEntity1, orderEntity2).collect(Collectors.toList());
-		orderRepository.saveAll(orders);
-		assertNotNull(orderEntity1.getId());
-		assertNotNull(orderEntity2.getId());
-	}
+    @Test
+    public void testAddOrders() {
+        OrderEntity orderEntity1 = this.createOrder("123e4567-e89b-42d3-a456-556642440000", "1", 99);
+        OrderEntity orderEntity2 = this.createOrder("123e4567-e89b-42d3-a456-556642440000", "2", 99);
+        List<OrderEntity> orders = Stream.of(orderEntity1, orderEntity2).collect(Collectors.toList());
+        orderRepository.saveAll(orders);
+        assertNotNull(orderEntity1.getId());
+        assertNotNull(orderEntity2.getId());
+    }
 
-	private OrderEntity createOrder(String customerId, String itemId, int price) {
-		CustomerEntity customer = customerRepository.findById(customerId).get();
-		ItemEntity itemEntity = itemRepository.findById(itemId).get();
-		OrderEntity orderEntity = new OrderEntity();
-		orderEntity.setCustomer(customer);
-		orderEntity.setItems(Arrays.asList(itemEntity));
-		return orderEntity;
-	}
+    private OrderEntity createOrder(String customerId, String itemId, int price) {
+        CustomerEntity customer = customerRepository.findById(customerId).get();
+        ItemEntity itemEntity = itemRepository.findById(itemId).get();
+        OrderEntity orderEntity = new OrderEntity();
+        orderEntity.setCustomer(customer);
+        orderEntity.setItems(Arrays.asList(itemEntity));
+        return orderEntity;
+    }
 
 }
