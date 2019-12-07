@@ -1,6 +1,6 @@
 FROM openjdk:8-jre-alpine
 
-ADD *.war app.jar
+ADD *.jar app.jar
 EXPOSE 8080
 
 ENV JAVA_OPTS=""
