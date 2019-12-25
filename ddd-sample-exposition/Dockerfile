@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk8-openj9
+FROM adoptopenjdk/openjdk8-openj9:alpine-nightly-slim
 
 VOLUME /tmp
 #RUN addgroup -S demo && adduser -S demo -G demo
