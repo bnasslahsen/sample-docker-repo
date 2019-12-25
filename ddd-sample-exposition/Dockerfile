@@ -3,7 +3,7 @@ FROM openjdk:8-jre-alpine
 VOLUME /tmp
 RUN addgroup -S demo && adduser -S demo -G demo
 
-ARG DEPENDENCY=target/dependency
+ARG DEPENDENCY=dependency
 COPY ${DEPENDENCY}/BOOT-INF/lib /app/lib
 COPY ${DEPENDENCY}/META-INF /app/META-INF
 COPY ${DEPENDENCY}/BOOT-INF/classes /app
