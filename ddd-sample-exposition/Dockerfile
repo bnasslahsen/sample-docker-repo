@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk8-openj9:alpine-nightly-slim
+FROM adoptopenjdk/openjdk8-openj9:alpine-slim
 
 VOLUME /tmp
 #RUN addgroup -S demo && adduser -S demo -G demo
@@ -16,4 +16,4 @@ EXPOSE 8080
 #USER demo
 
 #ENTRYPOINT ["ping","www.google.fr"]
-ENTRYPOINT ["java","-noverify","-Xscmx50M","-Xshareclasses","-Xquickstart","-Djava.security.egd=file:/dev/./urandom", "-Dspring.main.lazy-initialization=true", "-XX:TieredStopAtLevel=1","-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap" , "-XX:MaxRAMFraction=1" , "-XshowSettings:vm" , "-cp","app:app/lib/*","fr.training.spring.shop.SpringBootApp"]
+ENTRYPOINT ["java","-noverify","-Xscmx50M","-Xshareclasses","-Xtune:virtualized", "-Xquickstart","-Djava.security.egd=file:/dev/./urandom", "-Dspring.main.lazy-initialization=true", "-XX:TieredStopAtLevel=1","-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap" , "-XX:MaxRAMFraction=1" , "-XshowSettings:vm" , "-cp","app:app/lib/*","fr.training.spring.shop.SpringBootApp"]
