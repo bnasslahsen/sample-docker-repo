@@ -94,9 +94,7 @@ public class ItemEntity extends BaseEntity {
                 return false;
         } else if (!orders.equals(other.orders))
             return false;
-        if (price != other.price)
-            return false;
-        return true;
+        return price == other.price;
     }
 
 }

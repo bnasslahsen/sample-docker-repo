@@ -84,11 +84,8 @@ public class CustomerEntity extends BaseEntity {
         } else if (!orders.equals(other.orders))
             return false;
         if (password == null) {
-            if (other.password != null)
-                return false;
-        } else if (!password.equals(other.password))
-            return false;
-        return true;
+            return other.password == null;
+        } else return password.equals(other.password);
     }
 
 }

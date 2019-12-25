@@ -73,11 +73,8 @@ public class OrderEntity extends BaseEntity {
         } else if (!customer.equals(other.customer))
             return false;
         if (items == null) {
-            if (other.items != null)
-                return false;
-        } else if (!items.equals(other.items))
-            return false;
-        return true;
+            return other.items == null;
+        } else return items.equals(other.items);
     }
 
 }
