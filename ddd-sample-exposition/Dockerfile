@@ -9,7 +9,7 @@ COPY ${DEPENDENCY}/META-INF /app/META-INF
 COPY ${DEPENDENCY}/BOOT-INF/classes /app
 #RUN chmod -R +r /app
 
-EXPOSE 8080
+EXPOSE 8088
 # Run as non-root
 #USER demo
 # Lancement de l'application java avec le paramètre -Djava.security.egd pour
