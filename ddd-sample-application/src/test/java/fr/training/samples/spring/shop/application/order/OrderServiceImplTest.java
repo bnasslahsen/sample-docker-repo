@@ -25,7 +25,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.when;
 
 /**
- * @author Badr NASS
+ * @author bnasslahsen
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -36,25 +36,25 @@ public class OrderServiceImplTest {
 	 * orderManagement of type OrderManagement
 	 */
 	@Autowired
-	private transient OrderManagement orderManagement;
+	private  OrderManagement orderManagement;
 
 	/**
 	 * orderRepository of type OrderRepository
 	 */
 	@MockBean
-	private transient OrderRepository orderRepository;
+	private  OrderRepository orderRepository;
 
 	/**
 	 * customerRepository of type CustomerRepository
 	 */
 	@MockBean
-	private transient CustomerRepository customerRepository;
+	private  CustomerRepository customerRepository;
 
 	/**
 	 * itemRepository of type ItemRepository
 	 */
 	@MockBean
-	private transient ItemRepository itemRepository;
+	private  ItemRepository itemRepository;
 
 	/**
 	 * 

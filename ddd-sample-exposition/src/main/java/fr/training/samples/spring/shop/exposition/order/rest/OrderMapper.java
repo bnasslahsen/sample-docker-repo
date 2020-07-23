@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
 /**
- * @author Badr NASS Mapper for the entity CustomeEntity and its DTO CustomeDTO.
+ * @author bnasslahsen Mapper for the entity CustomeEntity and its DTO CustomeDTO.
  *
  */
 @Component
@@ -24,7 +24,7 @@ public class OrderMapper extends AbstractMapper<OrderDTO, OrderEntity> {
 	/**
 	 * itemMapper of type ItemMapper
 	 */
-	private transient final ItemMapper itemMapper;
+	private  final ItemMapper itemMapper;
 
 	public OrderMapper(ItemMapper itemMapper) {
 		super();

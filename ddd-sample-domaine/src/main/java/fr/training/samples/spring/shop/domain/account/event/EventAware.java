@@ -8,8 +8,8 @@ import java.util.List;
  */
 public interface EventAware {
 
-	public List<Event> getEvents();
+	 List<Event> getEvents();
 
-	public void clearEvents();
+	 void clearEvents();
 
 }

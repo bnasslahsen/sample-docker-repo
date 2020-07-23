@@ -6,7 +6,7 @@ import fr.training.samples.spring.shop.domain.item.entity.ItemEntity;
 
 
 /**
- * @author Badr NASS
+ * @author bnasslahsen
  *
  */
 public interface ItemManagement {

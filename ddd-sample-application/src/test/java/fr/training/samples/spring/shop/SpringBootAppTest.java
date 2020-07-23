@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 
 /**
- * @author Badr NASS
+ * @author bnasslahsen
  *
  */
 @SpringBootConfiguration

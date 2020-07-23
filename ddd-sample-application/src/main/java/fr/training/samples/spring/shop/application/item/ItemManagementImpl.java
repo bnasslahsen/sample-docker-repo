@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 /**
- * @author Badr NASS
+ * @author bnasslahsen
  *
  */
 @Service
@@ -22,7 +22,7 @@ public class ItemManagementImpl implements ItemManagement {
 	/**
 	 * itemRepository of type ItemRepository
 	 */
-	private final transient ItemRepository itemRepository;
+	private final  ItemRepository itemRepository;
 
 	/**
 	 * @param itemRepository

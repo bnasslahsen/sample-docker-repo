@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 /**
- * @author Badr NASS
+ * @author bnasslahsen
  *
  */
 @Service
@@ -18,7 +18,7 @@ public class CustomerManagementImpl implements CustomerManagement {
 	/**
 	 * customerRepository of type CustomerRepository
 	 */
-	private final transient CustomerRepository customerRepository;
+	private final  CustomerRepository customerRepository;
 
 	/**
 	 * @param customerRepository

@@ -6,7 +6,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
- * @author Badr NASS Abstract implementation of a bean mapper
+ * @author bnasslahsen Abstract implementation of a bean mapper
  * 
  * @param <T> The source class
  * @param <S> The target class

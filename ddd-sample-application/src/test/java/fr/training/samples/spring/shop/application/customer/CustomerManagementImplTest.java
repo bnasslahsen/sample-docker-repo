@@ -16,7 +16,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.mockito.Mockito.when;
 
 /**
- * @author Badr NASS
+ * @author bnasslahsen
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -27,13 +27,13 @@ public class CustomerManagementImplTest {
      * customerManagement of type CustomerManagement
      */
     @Autowired
-    private transient CustomerManagement customerManagement;
+    private  CustomerManagement customerManagement;
 
     /**
      * customerRepository of type CustomerRepository
      */
     @MockBean
-    private transient CustomerRepository customerRepository;
+    private  CustomerRepository customerRepository;
 
     @Test
     public void testCreate() {

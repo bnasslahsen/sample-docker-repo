@@ -7,7 +7,7 @@ import java.util.Set;
 import fr.training.samples.spring.shop.exposition.item.rest.ItemDTO;
 
 /**
- * @author Badr NASS
+ * @author bnasslahsen
  *
  */
 class OrderDTO implements Serializable {

@@ -22,12 +22,12 @@ public class OrderRepositoryImpl implements OrderRepository {
 	/**
 	 * orderDataJpaRepository of type OrderDataJpaRepository
 	 */
-	private final transient OrderDataJpaRepository orderDataJpaRepository;
+	private final  OrderDataJpaRepository orderDataJpaRepository;
 
 	/**
 	 * The EntityManager
 	 */
-	private final transient EntityManager entityManager;
+	private final  EntityManager entityManager;
 
 	public OrderRepositoryImpl(OrderDataJpaRepository orderDataJpaRepository, EntityManager entityManager) {
 		super();

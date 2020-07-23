@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 /**
- * @author Badr NASS
+ * @author bnasslahsen
  *
  */
 @RestController
@@ -32,12 +32,12 @@ public class ItemResource {
 	/**
 	 * itemManagement of type ItemManagement
 	 */
-	private transient ItemManagement itemManagement;
+	private  ItemManagement itemManagement;
 
 	/**
 	 * itemMapper of type ItemMapper
 	 */
-	private transient final ItemMapper itemMapper;
+	private  final ItemMapper itemMapper;
 
 	/**
 	 * logger of type Logger

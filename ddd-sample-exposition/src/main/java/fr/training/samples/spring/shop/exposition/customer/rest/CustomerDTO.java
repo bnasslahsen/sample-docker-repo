@@ -3,7 +3,7 @@ package fr.training.samples.spring.shop.exposition.customer.rest;
 import java.io.Serializable;
 
 /**
- * @author Badr NASS
+ * @author bnasslahsen
  *
  */
 class CustomerDTO implements Serializable {

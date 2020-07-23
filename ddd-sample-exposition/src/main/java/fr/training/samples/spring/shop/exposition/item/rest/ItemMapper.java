@@ -7,7 +7,7 @@ import fr.training.samples.spring.shop.domain.item.entity.ItemEntity;
 import org.springframework.stereotype.Component;
 
 /**
- * @author Badr NASS Mapper for the entity ItemEntity and its DTO ItemDTO.
+ * @author bnasslahsen Mapper for the entity ItemEntity and its DTO ItemDTO.
  * 
  */
 @Component

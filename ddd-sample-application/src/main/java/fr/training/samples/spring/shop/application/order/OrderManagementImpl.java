@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.CollectionUtils;
 
 /**
- * @author Badr NASS
+ * @author bnasslahsen
  *
  */
 @Service
@@ -27,17 +27,17 @@ public class OrderManagementImpl implements OrderManagement {
 	/**
 	 * orderRepository of type OrderRepository
 	 */
-	private final transient OrderRepository orderRepository;
+	private final  OrderRepository orderRepository;
 
 	/**
 	 * customerRepository of type CustomerRepository
 	 */
-	private final transient CustomerRepository customerRepository;
+	private final  CustomerRepository customerRepository;
 
 	/**
 	 * itemRepository of type ItemRepository
 	 */
-	private final transient ItemRepository itemRepository;
+	private final  ItemRepository itemRepository;
 
 	/**
 	 * @param orderRepository

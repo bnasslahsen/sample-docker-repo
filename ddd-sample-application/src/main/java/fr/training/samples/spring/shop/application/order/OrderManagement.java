@@ -7,7 +7,7 @@ import fr.training.samples.spring.shop.domain.order.entity.OrderEntity;
 
 
 /**
- * @author Badr NASS
+ * @author bnasslahsen
  *
  */
 public interface OrderManagement {

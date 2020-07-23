@@ -21,12 +21,12 @@ public class ItemRepositoryImpl implements ItemRepository {
 	/**
 	 * itemDataJpaRepository of type ItemDataJpaRepository
 	 */
-	private final transient ItemDataJpaRepository itemDataJpaRepository;
+	private final  ItemDataJpaRepository itemDataJpaRepository;
 
 	/**
 	 * the EntityManager
 	 */
-	private final transient EntityManager entityManager;
+	private final  EntityManager entityManager;
 
 
   public ItemRepositoryImpl(ItemDataJpaRepository itemDataJpaRepository, EntityManager entityManager) {

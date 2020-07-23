@@ -24,7 +24,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 /**
- * @author Badr NASS
+ * @author bnasslahsen
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -35,19 +35,19 @@ public class OrderRepositoryImplTest {
      * orderRepository of type OrderRepository
      */
     @Autowired
-    private transient OrderRepository orderRepository;
+    private  OrderRepository orderRepository;
 
     /**
      * itemRepository of type ItemRepository
      */
     @Autowired
-    private transient ItemRepository itemRepository;
+    private  ItemRepository itemRepository;
 
     /**
      * customerRepository of type CustomerRepository
      */
     @Autowired
-    private transient CustomerRepository customerRepository;
+    private  CustomerRepository customerRepository;
     
 
     /**

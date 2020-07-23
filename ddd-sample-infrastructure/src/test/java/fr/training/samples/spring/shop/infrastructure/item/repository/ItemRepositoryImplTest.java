@@ -19,7 +19,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 /**
- * @author Badr NASS
+ * @author bnasslahsen
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -30,7 +30,7 @@ public class ItemRepositoryImplTest {
      * itemRepository of type ItemRepository
      */
     @Autowired
-    private transient ItemRepository itemRepository;
+    private  ItemRepository itemRepository;
 
     /**
      * 

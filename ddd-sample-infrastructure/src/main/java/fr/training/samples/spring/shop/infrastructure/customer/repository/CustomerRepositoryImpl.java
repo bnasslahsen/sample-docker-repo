@@ -18,12 +18,12 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 	/**
 	 * customerDataJpaRepository of type CustomerDataJpaRepository
 	 */
-	private final transient CustomerDataJpaRepository customerDataJpaRepository;
+	private final  CustomerDataJpaRepository customerDataJpaRepository;
 
 	/**
 	 * The EntityManager
 	 */
-	private final transient EntityManager entityManager;
+	private final  EntityManager entityManager;
 
 	public CustomerRepositoryImpl(CustomerDataJpaRepository customerDataJpaRepository, EntityManager entityManager) {
 		super();

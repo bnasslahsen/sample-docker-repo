@@ -20,7 +20,7 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 
 /**
- * @author Badr NASS
+ * @author bnasslahsen
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -31,13 +31,13 @@ public class ItemServiceImplTest {
 	 * itemManagement of type ItemManagement
 	 */
 	@Autowired
-	private transient ItemManagement itemManagement;
+	private  ItemManagement itemManagement;
 
 	/**
 	 * itemRepository of type ItemRepository
 	 */
 	@MockBean
-	private transient ItemRepository itemRepository;
+	private  ItemRepository itemRepository;
 
 	@Test
 	public void testGetAllItems() {

@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 /**
- * @author Badr NASS
+ * @author bnasslahsen
  *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -26,7 +26,7 @@ public class CustomerJpaRepositoryTest {
      * customerRepository of type CustomerRepository
      */
     @Autowired
-    private transient CustomerRepository customerRepository;
+    private  CustomerRepository customerRepository;
 
     @Test
     public void testCreateAndFind() {

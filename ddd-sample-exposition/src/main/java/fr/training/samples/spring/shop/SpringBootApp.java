@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 
 /**
- * @author Badr NASS
+ * @author bnasslahsen
  *
  */
 @SpringBootApplication

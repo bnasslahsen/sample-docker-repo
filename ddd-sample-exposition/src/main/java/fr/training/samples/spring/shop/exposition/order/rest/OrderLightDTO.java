@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Set;
 
 /**
- * @author Badr NASS
+ * @author bnasslahsen
  *
  */
 class OrderLightDTO implements Serializable {

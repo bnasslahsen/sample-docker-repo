@@ -4,7 +4,7 @@ package fr.training.samples.spring.shop.application.customer;
 import fr.training.samples.spring.shop.domain.customer.entity.CustomerEntity;
 
 /**
- * @author Badr NASS
+ * @author bnasslahsen
  *
  */
 public interface CustomerManagement {

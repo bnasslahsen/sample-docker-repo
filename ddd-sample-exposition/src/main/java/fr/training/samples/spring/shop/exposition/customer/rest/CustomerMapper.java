@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  * Mapper for the entity CustomeEntity and its DTO CustomeDTO.
  */
 /**
- * @author Badr NASS
+ * @author bnasslahsen
  *
  */
 
