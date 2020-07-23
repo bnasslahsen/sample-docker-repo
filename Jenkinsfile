@@ -28,7 +28,7 @@ node {
             withSonarQubeEnv('Sonar') {
                 sh "./mvnw sonar:sonar"
             }
-      
+       }
 
         stage('packaging') {
             sh "./mvnw package -DskipTests"
