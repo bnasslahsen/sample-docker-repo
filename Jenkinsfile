@@ -14,21 +14,21 @@ node {
             sh "./mvnw clean"
         }
 
-/*        stage('backend tests') {
+      stage('backend tests') {
             try {
                 sh "./mvnw test"
             } catch (err) {
                 throw err
             } finally {*/
-//                junit '**/target/surefire-reports/TEST-*.xml'
-//            }
-//        }
+               junit '**/target/surefire-reports/TEST-*.xml'
+            }
+        }
 
-/*        stage('quality analysis') {
+       stage('quality analysis') {
             withSonarQubeEnv('Sonar') {
                 sh "./mvnw sonar:sonar"
             }
-        }*/
+      
 
         stage('packaging') {
             sh "./mvnw package -DskipTests"
