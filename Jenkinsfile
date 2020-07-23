@@ -19,7 +19,7 @@ node {
                 sh "./mvnw test"
             } catch (err) {
                 throw err
-            } finally {*/
+            } finally {
                junit '**/target/surefire-reports/TEST-*.xml'
             }
         }
