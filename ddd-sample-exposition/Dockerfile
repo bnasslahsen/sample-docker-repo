@@ -15,4 +15,4 @@ EXPOSE 8080
 # Lancement de l'application java avec le paramètre -Djava.security.egd pour
 USER demo
 
-ENTRYPOINT ["java","-noverify","-Djava.security.egd=file:/dev/./urandom", "-Dspring.main.lazy-initialization=true", "-XX:TieredStopAtLevel=1","-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap" , "-XX:MaxRAMFraction=1" , "-XshowSettings:vm" , "-cp","app:app/lib/*","fr.training.spring.shop.SpringBootApp"]
+ENTRYPOINT ["java","-noverify","-Djava.security.egd=file:/dev/./urandom", "-Dspring.main.lazy-initialization=true", "-XX:TieredStopAtLevel=1","-XX:+UnlockExperimentalVMOptions", "-XX:+UseCGroupMemoryLimitForHeap" , "-XX:MaxRAMFraction=1" , "-XshowSettings:vm" , "-cp","app:app/lib/*","fr.training.samples.spring.shop.SpringBootApp"]
