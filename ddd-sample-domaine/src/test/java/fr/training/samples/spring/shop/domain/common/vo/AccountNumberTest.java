@@ -33,7 +33,9 @@ public class AccountNumberTest {
 
 	private static final String VALID_IBAN0 = COUNTRY_CODE + CHECK_DIGITS + BANK_CODE + BRANCH_CODE + BBAN
 			+ NATIONAL_CHECK_DIGITS;
+
 	private static final String INVALID_IBAN1 = "AL36442788709271283994894168";
+
 	private static final String VALID_IBAN2 = "FR7630004955052077379731236";
 
 	@Rule

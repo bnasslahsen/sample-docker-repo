@@ -9,118 +9,120 @@ import java.util.List;
  */
 public class OrderVO implements Serializable {
 
-    /**
-     * serialVersionUID of type long
-     */
-    private static final long serialVersionUID = 1L;
+	/**
+	 * serialVersionUID of type long
+	 */
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * customerId of type Long
-     */
-    private Long customerId;
+	/**
+	 * customerId of type Long
+	 */
+	private Long customerId;
 
-    /**
-     * items of type List of Long
-     */
-    private List<Long> items;
+	/**
+	 * items of type List of Long
+	 */
+	private List<Long> items;
 
-    /**
-     * 
-     */
-    public OrderVO() {
+	/**
+	 *
+	 */
+	public OrderVO() {
 
-        super();
-    }
+		super();
+	}
 
-    /**
-     * @param customerId
-     * @param items
-     */
-    public OrderVO(final Long customerId, final List<Long> items) {
+	/**
+	 * @param customerId
+	 * @param items
+	 */
+	public OrderVO(final Long customerId, final List<Long> items) {
 
-        super();
-        this.customerId = customerId;
-        this.items = items;
-    }
+		super();
+		this.customerId = customerId;
+		this.items = items;
+	}
 
-    /*
-     * (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    @Override
-    public boolean equals(final Object obj) {
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(final Object obj) {
 
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final OrderVO other = (OrderVO) obj;
-        if (customerId == null) {
-            if (other.customerId != null) {
-                return false;
-            }
-        } else if (!customerId.equals(other.customerId)) {
-            return false;
-        }
-        if (items == null) {
-            if (other.items != null) {
-                return false;
-            }
-        } else if (!items.equals(other.items)) {
-            return false;
-        }
-        return true;
-    }
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		final OrderVO other = (OrderVO) obj;
+		if (customerId == null) {
+			if (other.customerId != null) {
+				return false;
+			}
+		}
+		else if (!customerId.equals(other.customerId)) {
+			return false;
+		}
+		if (items == null) {
+			if (other.items != null) {
+				return false;
+			}
+		}
+		else if (!items.equals(other.items)) {
+			return false;
+		}
+		return true;
+	}
 
-    /**
-     * @return
-     */
-    public Long getCustomerId() {
+	/**
+	 * @return
+	 */
+	public Long getCustomerId() {
 
-        return customerId;
-    }
+		return customerId;
+	}
 
-    /**
-     * @return
-     */
-    public List<Long> getItems() {
+	/**
+	 * @param customerId
+	 */
+	public void setCustomerId(final Long customerId) {
 
-        return items;
-    }
+		this.customerId = customerId;
+	}
 
-    /*
-     * (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
-    @Override
-    public int hashCode() {
+	/**
+	 * @return
+	 */
+	public List<Long> getItems() {
 
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + (customerId == null ? 0 : customerId.hashCode());
-        result = prime * result + (items == null ? 0 : items.hashCode());
-        return result;
-    }
+		return items;
+	}
 
-    /**
-     * @param customerId
-     */
-    public void setCustomerId(final Long customerId) {
+	/**
+	 * @param items
+	 */
+	public void setItems(final List<Long> items) {
 
-        this.customerId = customerId;
-    }
+		this.items = items;
+	}
 
-    /**
-     * @param items
-     */
-    public void setItems(final List<Long> items) {
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
 
-        this.items = items;
-    }
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (customerId == null ? 0 : customerId.hashCode());
+		result = prime * result + (items == null ? 0 : items.hashCode());
+		return result;
+	}
 
 }

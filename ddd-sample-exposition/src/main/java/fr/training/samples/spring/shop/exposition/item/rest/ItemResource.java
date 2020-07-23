@@ -30,19 +30,19 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 public class ItemResource {
 
 	/**
-	 * itemManagement of type ItemManagement
+	 * logger of type Logger
 	 */
-	private  ItemManagement itemManagement;
+	private static final Logger LOG = LoggerFactory.getLogger(ItemResource.class);
 
 	/**
 	 * itemMapper of type ItemMapper
 	 */
-	private  final ItemMapper itemMapper;
+	private final ItemMapper itemMapper;
 
 	/**
-	 * logger of type Logger
+	 * itemManagement of type ItemManagement
 	 */
-	private static final Logger LOG = LoggerFactory.getLogger(ItemResource.class);
+	private ItemManagement itemManagement;
 
 	/**
 	 * @param itemManagement itemManagement

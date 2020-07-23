@@ -11,15 +11,15 @@ import fr.training.samples.spring.shop.domain.item.entity.ItemEntity;
  */
 public interface ItemManagement {
 
-    /**
-     * @param itemEntity
-     * @return
-     */
-    ItemEntity addItem(ItemEntity itemEntity);
+	/**
+	 * @param itemEntity
+	 * @return
+	 */
+	ItemEntity addItem(ItemEntity itemEntity);
 
-    /**
-     * @return
-     */
-    List<ItemEntity> getAllItems();
+	/**
+	 * @return
+	 */
+	List<ItemEntity> getAllItems();
 
 }

@@ -7,29 +7,29 @@ import java.util.stream.Collectors;
 
 /**
  * @author bnasslahsen Abstract implementation of a bean mapper
- * 
+ *
  * @param <T> The source class
  * @param <S> The target class
  */
-public abstract class AbstractMapper<T, S> {
+public interface AbstractMapper<T, S> {
 
 	/**
 	 * @param entity entity
 	 * @return the mapped entity
 	 */
-	public abstract T mapToDto(S entity);
+	T mapToDto(S entity);
 
 	/**
 	 * @param dto dto
 	 * @return the mapped entity
 	 */
-	public abstract S mapToEntity(T dto);
+	S mapToEntity(T dto);
 
 	/**
 	 * @param entityList entityList
 	 * @return a List of the mapped entity
 	 */
-	public List<T> mapToDtoList(List<S> entityList) {
+	default List<T> mapToDtoList(List<S> entityList) {
 		return entityList.stream().filter(Objects::nonNull).map(this::mapToDto).collect(Collectors.toList());
 	}
 
@@ -37,7 +37,7 @@ public abstract class AbstractMapper<T, S> {
 	 * @param entityList entityList
 	 * @return a Set of the mapped entity
 	 */
-	public Set<T> mapToDtoSet(Set<S> entityList) {
+	default Set<T> mapToDtoSet(Set<S> entityList) {
 		return entityList.stream().filter(Objects::nonNull).map(this::mapToDto).collect(Collectors.toSet());
 	}
 
@@ -45,7 +45,7 @@ public abstract class AbstractMapper<T, S> {
 	 * @param dtoList dtoList
 	 * @return a List of the mapped entity
 	 */
-	public List<S> mapToEntityList(List<T> dtoList) {
+	default List<S> mapToEntityList(List<T> dtoList) {
 		return dtoList.stream().filter(Objects::nonNull).map(this::mapToEntity).collect(Collectors.toList());
 	}
 
@@ -53,7 +53,7 @@ public abstract class AbstractMapper<T, S> {
 	 * @param dtoList dtoList
 	 * @return a Set of the mapped entity
 	 */
-	public Set<S> mapToEntitySet(Set<T> dtoList) {
+	default Set<S> mapToEntitySet(Set<T> dtoList) {
 		return dtoList.stream().filter(Objects::nonNull).map(this::mapToEntity).collect(Collectors.toSet());
 	}
 }

@@ -2,8 +2,8 @@
 <!DOCTYPE configuration>
 
 <configuration scan="true">
-    <include resource="org/springframework/boot/logging/logback/base.xml"/>
-    <root level="INFO">
-        <appender-ref ref="CONSOLE"/>
-    </root>
+	<include resource="org/springframework/boot/logging/logback/base.xml"/>
+	<root level="INFO">
+		<appender-ref ref="CONSOLE"/>
+	</root>
 </configuration>

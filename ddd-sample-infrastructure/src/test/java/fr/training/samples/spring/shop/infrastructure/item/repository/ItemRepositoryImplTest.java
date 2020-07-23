@@ -26,43 +26,43 @@ import static org.junit.Assert.assertTrue;
 @DataJpaTest
 public class ItemRepositoryImplTest {
 
-    /**
-     * itemRepository of type ItemRepository
-     */
-    @Autowired
-    private  ItemRepository itemRepository;
-
-    /**
-     * 
-     */
-    @Test
-    public void testAddItem() {
-        final ItemEntity itemEntity = new ItemEntity(new ItemVO("DESC99", 99));
-        itemRepository.addItem(itemEntity);
-        assertNotNull(itemEntity.getId());
-    }
-
-    /**
-	 *  
+	/**
+	 * itemRepository of type ItemRepository
 	 */
-    @Test
-    public void testGetAllItems() {
-		final List<ItemEntity> itemEntities = itemRepository.getAllItems();
-        assertNotNull(itemEntities);
-        assertTrue(itemEntities.size() == 5);
-    }
+	@Autowired
+	private ItemRepository itemRepository;
 
-    /**
-     * 
-     */
-    @Test
-    public void testGetAllItemsWithList() {
+	/**
+	 *
+	 */
+	@Test
+	public void testAddItem() {
+		final ItemEntity itemEntity = new ItemEntity(new ItemVO("DESC99", 99));
+		itemRepository.addItem(itemEntity);
+		assertNotNull(itemEntity.getId());
+	}
+
+	/**
+	 *
+	 */
+	@Test
+	public void testGetAllItems() {
+		final List<ItemEntity> itemEntities = itemRepository.getAllItems();
+		assertNotNull(itemEntities);
+		assertTrue(itemEntities.size() == 5);
+	}
+
+	/**
+	 *
+	 */
+	@Test
+	public void testGetAllItemsWithList() {
 		final Set<String> items = Stream.of("123e4567-e89b-42d3-a456-556642440001",
 				"123e4567-e89b-42d3-a456-556642440002", "123e4567-e89b-42d3-a456-556642440003")
 				.collect(Collectors.toSet());
-        final Set<ItemEntity> itemEntities = itemRepository.getAllItems(items);
-        assertNotNull(itemEntities);
-        assertTrue(itemEntities.size() == 3);
+		final Set<ItemEntity> itemEntities = itemRepository.getAllItems(items);
+		assertNotNull(itemEntities);
+		assertTrue(itemEntities.size() == 3);
 	}
 
 }

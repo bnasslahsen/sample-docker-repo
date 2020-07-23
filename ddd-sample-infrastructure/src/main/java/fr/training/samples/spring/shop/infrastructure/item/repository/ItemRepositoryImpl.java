@@ -21,15 +21,15 @@ public class ItemRepositoryImpl implements ItemRepository {
 	/**
 	 * itemDataJpaRepository of type ItemDataJpaRepository
 	 */
-	private final  ItemDataJpaRepository itemDataJpaRepository;
+	private final ItemDataJpaRepository itemDataJpaRepository;
 
 	/**
 	 * the EntityManager
 	 */
-	private final  EntityManager entityManager;
+	private final EntityManager entityManager;
 
 
-  public ItemRepositoryImpl(ItemDataJpaRepository itemDataJpaRepository, EntityManager entityManager) {
+	public ItemRepositoryImpl(ItemDataJpaRepository itemDataJpaRepository, EntityManager entityManager) {
 		super();
 		this.itemDataJpaRepository = itemDataJpaRepository;
 		this.entityManager = entityManager;

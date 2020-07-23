@@ -27,17 +27,17 @@ public class OrderManagementImpl implements OrderManagement {
 	/**
 	 * orderRepository of type OrderRepository
 	 */
-	private final  OrderRepository orderRepository;
+	private final OrderRepository orderRepository;
 
 	/**
 	 * customerRepository of type CustomerRepository
 	 */
-	private final  CustomerRepository customerRepository;
+	private final CustomerRepository customerRepository;
 
 	/**
 	 * itemRepository of type ItemRepository
 	 */
-	private final  ItemRepository itemRepository;
+	private final ItemRepository itemRepository;
 
 	/**
 	 * @param orderRepository

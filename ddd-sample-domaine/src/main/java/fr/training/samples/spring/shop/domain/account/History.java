@@ -1,4 +1,5 @@
 package fr.training.samples.spring.shop.domain.account;
+
 import java.time.LocalDate;
 
 import fr.training.samples.spring.shop.domain.common.entity.AbstractBaseEntity;

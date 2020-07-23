@@ -36,28 +36,28 @@ public class OrderServiceImplTest {
 	 * orderManagement of type OrderManagement
 	 */
 	@Autowired
-	private  OrderManagement orderManagement;
+	private OrderManagement orderManagement;
 
 	/**
 	 * orderRepository of type OrderRepository
 	 */
 	@MockBean
-	private  OrderRepository orderRepository;
+	private OrderRepository orderRepository;
 
 	/**
 	 * customerRepository of type CustomerRepository
 	 */
 	@MockBean
-	private  CustomerRepository customerRepository;
+	private CustomerRepository customerRepository;
 
 	/**
 	 * itemRepository of type ItemRepository
 	 */
 	@MockBean
-	private  ItemRepository itemRepository;
+	private ItemRepository itemRepository;
 
 	/**
-	 * 
+	 *
 	 */
 	@Test
 	public void testAddOrder() {

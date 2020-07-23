@@ -66,7 +66,8 @@ public interface ComparableTester {
 		try {
 			obj1.compareTo(null);
 			fail();
-		} catch (final NullPointerException e) {
+		}
+		catch (final NullPointerException e) {
 
 		}
 	}

@@ -4,7 +4,7 @@ spring:
   profiles:
     active: '@spring.profiles.active@'
   jpa:
-    mapping-resources: 
+    mapping-resources:
       - META-INF/common.orm.hbm.xml
       - META-INF/customer.orm.hbm.xml
       - META-INF/account.orm.hbm.xml
@@ -14,7 +14,7 @@ spring:
     jcache:
       config: classpath:cache/ehcache.xml
 # Logging Configurations
-application: 
+application:
   orgEntity: MyCompany
   version: '@project.version@'
   timezone: ${user.timezone}

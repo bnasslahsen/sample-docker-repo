@@ -10,105 +10,80 @@ import javax.validation.constraints.NotNull;
  */
 public class ItemVO implements Serializable {
 
-    /**
-     * serialVersionUID of type long
-     */
-    private static final long serialVersionUID = 1L;
-
-    /**
-     * description of type String
-     */
-    private String description;
-
-    /**
-     * price of type int
-     */
-    private int price;
-
-    /**
-	 * 
+	/**
+	 * serialVersionUID of type long
 	 */
-    public ItemVO() {
-        super();
-    }
+	private static final long serialVersionUID = 1L;
 
-    /**
-     * @param description
-     * @param price
-     */
-    public ItemVO(@NotNull final String description, final int price) {
-        this.description = description;
-        this.price = price;
-    }
+	/**
+	 * description of type String
+	 */
+	private String description;
 
-    /*
-     * (non-Javadoc)
-     * @see java.lang.Object#equals(java.lang.Object)
-     */
-    @Override
-    public boolean equals(final Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final ItemVO other = (ItemVO) obj;
-        if (description == null) {
-            if (other.description != null) {
-                return false;
-            }
-        } else if (!description.equals(other.description)) {
-            return false;
-        }
-        if (price != other.price) {
-            return false;
-        }
-        return true;
-    }
+	/**
+	 * price of type int
+	 */
+	private int price;
 
-    /**
-     * @return
-     */
-    public String getDescription() {
-        return description;
-    }
+	/**
+	 *
+	 */
+	public ItemVO() {
+		super();
+	}
 
-    /**
-     * @return
-     */
-    public int getPrice() {
-        return price;
-    }
+	/**
+	 * @param description
+	 * @param price
+	 */
+	public ItemVO(@NotNull final String description, final int price) {
+		this.description = description;
+		this.price = price;
+	}
 
-    /*
-     * (non-Javadoc)
-     * @see java.lang.Object#hashCode()
-     */
-    @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + (description == null ? 0 : description.hashCode());
-        result = prime * result + price;
-        return result;
-    }
+	/**
+	 * @return
+	 */
+	public String getDescription() {
+		return description;
+	}
 
-    /**
-     * @param description
-     */
-    public void setDescription(@NotNull final String description) {
-        this.description = description;
-    }
+	/**
+	 * @param description
+	 */
+	public void setDescription(@NotNull final String description) {
+		this.description = description;
+	}
 
-    /**
-     * @param price
-     */
-    public void setPrice(final int price) {
-        this.price = price;
-    }
+	/**
+	 * @return
+	 */
+	public int getPrice() {
+		return price;
+	}
 
+	/**
+	 * @param price
+	 */
+	public void setPrice(final int price) {
+		this.price = price;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		ItemVO itemVO = (ItemVO) o;
+
+		if (price != itemVO.price) return false;
+		return description != null ? description.equals(itemVO.description) : itemVO.description == null;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = description != null ? description.hashCode() : 0;
+		result = 31 * result + price;
+		return result;
+	}
 }

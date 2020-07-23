@@ -11,27 +11,27 @@ import fr.training.samples.spring.shop.domain.item.entity.ItemEntity;
  */
 public interface ItemRepository {
 
-    /**
-     * @param itemEntity
-     * @return
-     */
-    ItemEntity addItem(ItemEntity itemEntity);
+	/**
+	 * @param itemEntity
+	 * @return
+	 */
+	ItemEntity addItem(ItemEntity itemEntity);
 
-    /**
-     * @param itemId
-     * @return
-     */
-    ItemEntity findOne(String itemId);
+	/**
+	 * @param itemId
+	 * @return
+	 */
+	ItemEntity findOne(String itemId);
 
-    /**
-     * @return
-     */
+	/**
+	 * @return
+	 */
 	List<ItemEntity> getAllItems();
 
-    /**
-     * @param itemsId
-     * @return
-     */
+	/**
+	 * @param itemsId
+	 * @return
+	 */
 	Set<ItemEntity> getAllItems(Set<String> itemsId);
 
 }

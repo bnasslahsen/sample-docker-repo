@@ -12,7 +12,6 @@ import fr.training.samples.spring.shop.domain.common.exception.InsufficientFunds
 public enum OverDraftPolicy {
 
 	LIMITED {
-
 		@Override
 		public void preDebit(final BankAccount bankAccount, final Money amount) {
 			final Money protection = bankAccount.getOverdraftProtection();
@@ -27,12 +26,12 @@ public enum OverDraftPolicy {
 
 		@Override
 		public void postDebit(final BankAccount bankAccount, final Money money) {
+			// Nice method to implement
 		}
 
 	},
 
 	NO_OVERDRAFT {
-
 		@Override
 		public void preDebit(final BankAccount bankAccount, final Money amount) {
 
@@ -44,7 +43,7 @@ public enum OverDraftPolicy {
 
 		@Override
 		public void postDebit(final BankAccount bankAccount, final Money money) {
-
+			// Nice method to implement
 		}
 
 	};

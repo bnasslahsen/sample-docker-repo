@@ -26,7 +26,7 @@ public final class AccountNumber implements Serializable {
 
 	/**
 	 * private construtor used to centralize validation.
-	 * 
+	 *
 	 * @param value
 	 *            value of the AccountNumber
 	 */
@@ -38,7 +38,7 @@ public final class AccountNumber implements Serializable {
 
 	/**
 	 * Factoy method used to create instance of AccountNumber in static way.
-	 * 
+	 *
 	 * @param value
 	 *            value of the AccountNumber
 	 * @return a new AccountNumber object
@@ -56,7 +56,7 @@ public final class AccountNumber implements Serializable {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -68,7 +68,7 @@ public final class AccountNumber implements Serializable {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -87,7 +87,7 @@ public final class AccountNumber implements Serializable {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

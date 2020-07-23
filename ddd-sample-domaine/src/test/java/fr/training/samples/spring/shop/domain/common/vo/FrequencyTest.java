@@ -12,6 +12,7 @@ import static org.hamcrest.Matchers.equalTo;
 public class FrequencyTest {
 
 	private final LocalDate aDate = LocalDate.of(2019, Month.JULY, 1);
+
 	private final LocalDate anotherDate = LocalDate.of(2019, Month.MARCH, 31);
 
 	@Test

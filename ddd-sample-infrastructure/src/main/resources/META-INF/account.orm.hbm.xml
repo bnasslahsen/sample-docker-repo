@@ -1,98 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<entity-mappings version="2.0"
-	xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd">
+<entity-mappings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				 version="2.0"
+				 xmlns="http://java.sun.com/xml/ns/persistence/orm"
+				 xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd">
 
 	<description>Bank Account domain module</description>
 
 	<entity
-		class="fr.training.samples.spring.shop.domain.account.BankAccount"
-		name="BankAccount" access="FIELD">
-		<table name="BANK_ACCOUNT" />
+			class="fr.training.samples.spring.shop.domain.account.BankAccount"
+			name="BankAccount" access="FIELD">
+		<table name="BANK_ACCOUNT"/>
 
 		<attributes>
 			<basic name="status">
-				<column name="STATUS" length="1" />
+				<column name="STATUS" length="1"/>
 			</basic>
 			<basic name="createdDate">
-				<column name="CREATED_DATE" />
+				<column name="CREATED_DATE"/>
 			</basic>
 
 			<one-to-many name="owners" fetch="LAZY" orphan-removal="true">
 				<join-column name="ACCOUNT_ID" referenced-column-name="ID"
-					nullable="false" updatable="false" />
+							 nullable="false" updatable="false"/>
 				<cascade>
-					<cascade-all />
+					<cascade-all/>
 				</cascade>
 			</one-to-many>
 
 			<one-to-one name="history" fetch="LAZY"
-				target-entity="fr.training.samples.spring.shop.domain.account.History">
-				<join-column name="HISTORY_ID" />
+						target-entity="fr.training.samples.spring.shop.domain.account.History">
+				<join-column name="HISTORY_ID"/>
 				<cascade>
-					<cascade-all />
+					<cascade-all/>
 				</cascade>
 			</one-to-one>
 			<embedded name="balance">
 				<attribute-override name="amount">
-					<column name="BALANCE_AMNT" />
+					<column name="BALANCE_AMNT"/>
 				</attribute-override>
 				<attribute-override name="currency">
-					<column name="BALANCE_CRCY" />
+					<column name="BALANCE_CRCY"/>
 				</attribute-override>
 			</embedded>
 
 			<embedded name="overdraftProtection">
 				<attribute-override name="amount">
-					<column name="OVERDRAFT_AMNT" />
+					<column name="OVERDRAFT_AMNT"/>
 				</attribute-override>
 				<attribute-override name="currency">
-					<column name="OVERDRAFT_CRCY" />
+					<column name="OVERDRAFT_CRCY"/>
 				</attribute-override>
 			</embedded>
 
 			<embedded name="accountNumber">
 				<attribute-override name="value">
-					<column name="ACCOUNT_NUMBER" length="34" />
+					<column name="ACCOUNT_NUMBER" length="34"/>
 				</attribute-override>
 			</embedded>
 		</attributes>
 	</entity>
 
 	<entity
-		class="fr.training.samples.spring.shop.domain.account.History"
-		name="History" access="FIELD">
-		<table name="HISTORY" />
+			class="fr.training.samples.spring.shop.domain.account.History"
+			name="History" access="FIELD">
+		<table name="HISTORY"/>
 
 		<attributes>
 			<one-to-one name="previous" fetch="LAZY">
-				<join-column name="PREVIOUS_ID" />
+				<join-column name="PREVIOUS_ID"/>
 				<cascade>
-					<cascade-all />
+					<cascade-all/>
 				</cascade>
 			</one-to-one>
 			<embedded name="balance">
 				<attribute-override name="amount">
-					<column name="BALANCE_AMNT" />
+					<column name="BALANCE_AMNT"/>
 				</attribute-override>
 				<attribute-override name="currency">
-					<column name="BALANCE_CRCY" />
+					<column name="BALANCE_CRCY"/>
 				</attribute-override>
 			</embedded>
 		</attributes>
 	</entity>
 
-	<entity class="fr.training.samples.spring.shop.domain.account.Owner" name="Owner" access="FIELD">
-		<table name="OWNER" />
+	<entity class="fr.training.samples.spring.shop.domain.account.Owner" name="Owner"
+			access="FIELD">
+		<table name="OWNER"/>
 		<attributes>
 			<basic name="lastname">
-				<column name="LASTNAME" length="30" />
+				<column name="LASTNAME" length="30"/>
 			</basic>
 			<basic name="firstName">
-				<column name="FIRSTNAME" length="20" />
+				<column name="FIRSTNAME" length="20"/>
 			</basic>
 			<basic name="email">
-				<column name="EMAIL" length="20" />
+				<column name="EMAIL" length="20"/>
 			</basic>
 		</attributes>
 	</entity>

@@ -12,11 +12,11 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootConfiguration
 @EnableAutoConfiguration
 @ComponentScan(basePackages = { "fr.training.samples.spring.shop" }, lazyInit = true)
-public class SpringBootAppTest {
+public class SpringBootAppBase {
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootAppTest.class, args);
+		SpringApplication.run(SpringBootAppBase.class, args);
 	}
 }

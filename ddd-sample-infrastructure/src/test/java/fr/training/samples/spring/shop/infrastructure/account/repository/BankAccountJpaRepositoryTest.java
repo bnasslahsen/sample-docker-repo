@@ -29,7 +29,9 @@ import static org.junit.Assert.assertThat;
 public class BankAccountJpaRepositoryTest {
 
 	private static final AccountNumber IBAN_1 = AccountNumber.of("FR1030004096910384684503644");
+
 	private static final AccountNumber IBAN_2 = AccountNumber.of("FR0630004227392330913861105");
+
 	private static final AccountNumber IBAN_3 = AccountNumber.of("FR8030004338226226651763205");
 
 	@Autowired

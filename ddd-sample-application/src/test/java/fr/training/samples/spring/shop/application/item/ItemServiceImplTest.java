@@ -31,13 +31,13 @@ public class ItemServiceImplTest {
 	 * itemManagement of type ItemManagement
 	 */
 	@Autowired
-	private  ItemManagement itemManagement;
+	private ItemManagement itemManagement;
 
 	/**
 	 * itemRepository of type ItemRepository
 	 */
 	@MockBean
-	private  ItemRepository itemRepository;
+	private ItemRepository itemRepository;
 
 	@Test
 	public void testGetAllItems() {

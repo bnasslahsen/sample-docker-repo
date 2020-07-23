@@ -12,18 +12,19 @@ import org.springframework.stereotype.Component;
 @Component
 @Aspect
 public class LoggingShopAspect {
-	
+
 	private static final Log LOGGER = LogFactory.getLog(LoggingShopAspect.class);
 
 	@Pointcut("execution( * fr.training.samples.spring.shop.application..*.*(..))")
 	private void developerIsDoingSomething() {
+		// This is a simple pointcut
 	}
 
 	@Before("developerIsDoingSomething()")
 	public void log(JoinPoint jp) {
 		StringBuilder toLog = new StringBuilder("logging ")
-			.append(jp.getSignature().toLongString())
-			.append(" with args: [");
+				.append(jp.getSignature().toLongString())
+				.append(" with args: [");
 		Object[] args = jp.getArgs();
 		for (Object arg : args) {
 			toLog.append(arg).append(", ");
@@ -31,7 +32,5 @@ public class LoggingShopAspect {
 		toLog.append("]");
 		LOGGER.info(toLog.toString());
 	}
-	
-	
-	
+
 }

@@ -20,10 +20,10 @@ public class AccountNumberServiceAdapter implements AccountNumberServicePort {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(AccountNumberServiceAdapter.class);
 
+	private final RestTemplate restTemplate;
+
 	@Value("${account-number.service.endpoint}")
 	private String accountNumberServiceEndPoint;
-
-	private final RestTemplate restTemplate;
 
 	public AccountNumberServiceAdapter() {
 		restTemplate = new RestTemplate();

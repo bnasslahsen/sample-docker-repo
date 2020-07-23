@@ -14,13 +14,13 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan(basePackages = { "fr.training.samples.spring.shop" }, lazyInit = true)
 @EntityScan(basePackages = { "fr.training.samples.spring.shop.domain" })
 @EnableJpaRepositories
-public class SpringBootAppTest {
+public class SpringBootAppBase {
 
-    /**
-     * @param args
-     */
-    public static void main(final String[] args) {
+	/**
+	 * @param args
+	 */
+	public static void main(final String[] args) {
 
-        SpringApplication.run(SpringBootAppTest.class, args);
-    }
+		SpringApplication.run(SpringBootAppBase.class, args);
+	}
 }

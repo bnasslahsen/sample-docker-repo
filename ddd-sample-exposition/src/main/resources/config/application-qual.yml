@@ -2,19 +2,19 @@ spring:
   datasource:
     url: jdbc:h2:mem:testdb
     username: sa
-    password: 
+    password:
     driver-class-name: org.h2.Driver
   hibernate:
     ddl-auto: validate
 # Logging Configurations
-application: 
+application:
   environment: QUAL
   retention: quarter
   token: 0000000x
   log-dir: ${X_LOG_DIR:${user.dir}}
 #Monitoring endpoints   
 management:
-   endpoints:
-      web:
-         exposure:
-            include: info, health
+  endpoints:
+    web:
+      exposure:
+        include: info, health

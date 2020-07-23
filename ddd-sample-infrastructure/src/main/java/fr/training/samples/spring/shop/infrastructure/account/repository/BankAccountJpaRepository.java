@@ -13,6 +13,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 public interface BankAccountJpaRepository extends JpaRepository<BankAccount, String> {
 
-    Optional<BankAccount> findByAccountNumber(AccountNumber accountNumber);
+	Optional<BankAccount> findByAccountNumber(AccountNumber accountNumber);
 
 }

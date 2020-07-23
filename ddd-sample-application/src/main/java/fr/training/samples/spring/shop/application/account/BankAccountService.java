@@ -40,7 +40,7 @@ public class BankAccountService implements BankAccountServicePort {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see fr.training.samples.spring.shop.application.account.
 	 * BankAccountServicePort#createAccount(fr.training.samples.spring.shop.domain.common.vo.Money)
 	 */
@@ -86,7 +86,7 @@ public class BankAccountService implements BankAccountServicePort {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see fr.training.samples.spring.shop.application.account.
 	 * BankAccountServicePort#withdraw(fr.training.samples.spring.shop.domain.common.vo.AccountNumber,
 	 * Money)
@@ -102,7 +102,7 @@ public class BankAccountService implements BankAccountServicePort {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see fr.training.samples.spring.shop.application.account.
 	 * BankAccountServicePort#deposit(fr.training.samples.spring.shop.common.vo.AccountNumber, Money)
 	 */
@@ -118,7 +118,7 @@ public class BankAccountService implements BankAccountServicePort {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see fr.training.samples.spring.shop.application.account.
 	 * BankAccountServicePort#transfer(fr.training.samples.spring.shop.common.vo.AccountNumber,
 	 * fr.training.samples.spring.shop.domain.common.vo.
@@ -142,7 +142,7 @@ public class BankAccountService implements BankAccountServicePort {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 */
 	@Override
 	public void close(final AccountNumber iban) {
@@ -156,7 +156,7 @@ public class BankAccountService implements BankAccountServicePort {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 */
 	@Override
 	public void suspend(final AccountNumber iban) {
@@ -170,7 +170,7 @@ public class BankAccountService implements BankAccountServicePort {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see fr.training.samples.spring.shop.application.account.
 	 * BankAccountServicePort#findOne(java.lang.String)
 	 */

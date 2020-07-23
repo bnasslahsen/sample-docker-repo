@@ -22,7 +22,7 @@ public class BankAccountRepositoryAdapter implements BankAccountRepositoryPort {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 */
 	@Override
 	public Optional<BankAccount> findByAccountNumber(final AccountNumber accountNumber) {
@@ -32,7 +32,7 @@ public class BankAccountRepositoryAdapter implements BankAccountRepositoryPort {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 */
 	@Override
 	public BankAccount save(final BankAccount account) {
@@ -42,7 +42,7 @@ public class BankAccountRepositoryAdapter implements BankAccountRepositoryPort {
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * fr.training.samples.spring.shop.domain.account.repository.
 	 * BankAccountRepositoryPort#findOne(java.lang.Long)

@@ -16,9 +16,9 @@ import org.springframework.lang.NonNull;
  */
 public final class Money {
 
-  public static final Currency EUR = Currency.getInstance("EUR");
+	public static final Currency EUR = Currency.getInstance("EUR");
 
-  public static final Currency DefaultCurrency = EUR;
+	public static final Currency DefaultCurrency = EUR;
 
 	@NonNull
 	private BigDecimal amount;
@@ -44,6 +44,59 @@ public final class Money {
 	public Money(final BigDecimal amount, final Currency currency) {
 		this.amount = amount;
 		this.currency = currency;
+	}
+
+	/**
+	 * Factory method for Constructing an IMMUTABLE money object from a int.
+	 *
+	 * @param amount
+	 *            int amount value
+	 * @return a new Money instance
+	 */
+	public static Money of(final int amount) {
+		return of(BigDecimal.valueOf(amount));
+	}
+
+	/**
+	 * Factory method for Constructing an IMMUTABLE money object from a long.
+	 *
+	 * @param amount
+	 *            long amount value
+	 * @return a new Money instance
+	 */
+	public static Money of(final long amount) {
+		return of(BigDecimal.valueOf(amount));
+	}
+
+	/**
+	 * Factory method for Constructing an IMMUTABLE money object from a BigDecimal.
+	 *
+	 * @param amount BigDecimal mount value
+	 * @param currency currency value
+	 * @return a new Money instance
+	 */
+	public static Money of(final BigDecimal amount, final Currency currency) {
+		return new Money(amount, currency);
+	}
+
+	/**
+	 * Factory method for Constructing an IMMUTABLE money object from a BigDecimal
+	 * and default currency.
+	 *
+	 * @param amount
+	 *            BigDecimal mount value
+	 * @return a new Money instance
+	 */
+	public static Money of(final BigDecimal amount) {
+		return of(amount, DefaultCurrency);
+	}
+
+	public static Money zero(final Currency currency) {
+		return of(BigDecimal.ZERO, currency);
+	}
+
+	public static Money zero() {
+		return zero(DefaultCurrency);
 	}
 
 	/**
@@ -108,6 +161,8 @@ public final class Money {
 		return isGreaterThan(other.amount);
 	}
 
+	// Static methods
+
 	private boolean isGreaterThan(final BigDecimal amount) {
 		return this.amount.compareTo(amount) > 0;
 	}
@@ -148,60 +203,6 @@ public final class Money {
 				.append("amount", amount) //
 				.append("currency", currency) //
 				.toString();
-	}
-
-	// Static methods
-	/**
-	 * Factory method for Constructing an IMMUTABLE money object from a int.
-	 *
-	 * @param amount
-	 *            int amount value
-	 * @return a new Money instance
-	 */
-	public static Money of(final int amount) {
-		return of(BigDecimal.valueOf(amount));
-	}
-
-	/**
-	 * Factory method for Constructing an IMMUTABLE money object from a long.
-	 *
-	 * @param amount
-	 *            long amount value
-	 * @return a new Money instance
-	 */
-	public static Money of(final long amount) {
-		return of(BigDecimal.valueOf(amount));
-	}
-
-	/**
-   * Factory method for Constructing an IMMUTABLE money object from a BigDecimal.
-   *
-   * @param amount BigDecimal mount value
-   * @param currency currency value
-   * @return a new Money instance
-   */
-	public static Money of(final BigDecimal amount, final Currency currency) {
-		return new Money(amount, currency);
-	}
-
-	/**
-	 * Factory method for Constructing an IMMUTABLE money object from a BigDecimal
-	 * and default currency.
-	 *
-	 * @param amount
-	 *            BigDecimal mount value
-	 * @return a new Money instance
-	 */
-	public static Money of(final BigDecimal amount) {
-		return of(amount, DefaultCurrency);
-	}
-
-	public static Money zero(final Currency currency) {
-		return of(BigDecimal.ZERO, currency);
-	}
-
-	public static Money zero() {
-		return zero(DefaultCurrency);
 	}
 
 	public boolean isZero() {

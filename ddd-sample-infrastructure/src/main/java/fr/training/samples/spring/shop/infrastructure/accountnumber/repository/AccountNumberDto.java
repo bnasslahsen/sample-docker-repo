@@ -11,24 +11,24 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AccountNumberDto implements Serializable {
 
-    private static final long serialVersionUID = 8470639021161608761L;
+	private static final long serialVersionUID = 8470639021161608761L;
 
-    @JsonProperty
-    private String value;
+	@JsonProperty
+	private String value;
 
-    /**
-     * @return the value
-     */
-    public String getValue() {
-        return value;
-    }
+	/**
+	 * @return the value
+	 */
+	public String getValue() {
+		return value;
+	}
 
-    /**
-     * @param value
-     *            the value to set
-     */
-    public void setValue(final String value) {
-        this.value = value;
-    }
+	/**
+	 * @param value
+	 *            the value to set
+	 */
+	public void setValue(final String value) {
+		this.value = value;
+	}
 
 }

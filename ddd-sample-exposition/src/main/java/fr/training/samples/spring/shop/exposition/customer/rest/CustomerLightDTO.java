@@ -24,7 +24,7 @@ class CustomerLightDTO implements Serializable {
 	private String password;
 
 	/**
-	 * 
+	 *
 	 */
 	public CustomerLightDTO() {
 		super();
@@ -48,17 +48,17 @@ class CustomerLightDTO implements Serializable {
 	}
 
 	/**
-	 * @return
-	 */
-	public String getPassword() {
-		return password;
-	}
-
-	/**
 	 * @param name
 	 */
 	public void setName(final String name) {
 		this.name = name;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getPassword() {
+		return password;
 	}
 
 	/**

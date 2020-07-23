@@ -35,8 +35,11 @@ import static org.mockito.Mockito.when;
 public class BankAccountServiceTest {
 
 	private static final Money ZERO_BALANCE = Money.zero();
+
 	private static final AccountNumber IBAN_INSUFICIENT = AccountNumber.of("FR1830004600401891840058020");
+
 	private static final AccountNumber IBAN_DEBIT = AccountNumber.of("FR4830004509770640790476899");
+
 	private static final AccountNumber IBAN_CREDIT = AccountNumber.of("FR8030004338226226651763205");
 
 	@Autowired
@@ -49,10 +52,15 @@ public class BankAccountServiceTest {
 	private AccountNumberServicePort accountNumberServiceMock;
 
 	private BankAccount insufficientAccount;
+
 	private Optional<BankAccount> optInsufficientAccount;
+
 	private BankAccount debitAccount;
+
 	private Optional<BankAccount> optDebitAccount;
+
 	private BankAccount creditAccount;
+
 	private Optional<BankAccount> optCreditAccount;
 
 	@Test

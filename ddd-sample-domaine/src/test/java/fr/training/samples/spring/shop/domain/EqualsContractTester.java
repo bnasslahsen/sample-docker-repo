@@ -5,7 +5,7 @@ import static org.junit.Assert.assertThat;
 
 /**
  * Interface used to verify the Equals() contract.
- * 
+ *
  * <ul>
  * <li><b>Reflexivity</b> : Apple == Apple</li>
  * <li><b>Symetry</b> : if Apple == Orange then Orange == Apple</li>
@@ -15,7 +15,7 @@ import static org.junit.Assert.assertThat;
  * always</li>
  * <li><b>Non Nullity</b> : Apple == null is never true</li>
  * </ul>
- * 
+ *
  * See :
  * <ul>
  * <li>Chapter 3 of Effective Java Programming Language Guide By Joshua

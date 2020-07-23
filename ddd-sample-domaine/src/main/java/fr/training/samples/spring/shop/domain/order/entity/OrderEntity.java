@@ -31,7 +31,7 @@ public class OrderEntity extends AbstractBaseEntity {
 
 	/**
 	 * All args constructor
-	 * 
+	 *
 	 * @param customer
 	 * @param items
 	 */
@@ -49,17 +49,17 @@ public class OrderEntity extends AbstractBaseEntity {
 	}
 
 	/**
-	 * @return
-	 */
-	public Set<ItemEntity> getItems() {
-		return items;
-	}
-
-	/**
 	 * @param customer
 	 */
 	public void setCustomer(final CustomerEntity customer) {
 		this.customer = customer;
+	}
+
+	/**
+	 * @return
+	 */
+	public Set<ItemEntity> getItems() {
+		return items;
 	}
 
 	/**

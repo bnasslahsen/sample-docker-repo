@@ -17,7 +17,7 @@ import static org.junit.Assert.assertThat;
  * <code>a.equals(b) == false</code> or <code>b.equals(a) == false</code>, then
  * <code>a.hashCode() != b.hashCode()</code>.</li>
  * </ul>
- * 
+ *
  * See :
  * <ul>
  * <li>Chapter 3 of Effective Java Programming Language Guide By Joshua

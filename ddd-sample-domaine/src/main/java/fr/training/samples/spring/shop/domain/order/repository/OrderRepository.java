@@ -11,27 +11,27 @@ import fr.training.samples.spring.shop.domain.order.entity.OrderEntity;
  */
 public interface OrderRepository {
 
-    /**
-     * @param order
-     * @return
-     */
-    OrderEntity addOrder(OrderEntity order);
+	/**
+	 * @param order
+	 * @return
+	 */
+	OrderEntity addOrder(OrderEntity order);
 
-    /**
-     * @param orders
-     */
-    void addOrders(List<OrderEntity> orders);
+	/**
+	 * @param orders
+	 */
+	void addOrders(List<OrderEntity> orders);
 
-    /**
-     * @param orderID
-     * @return
-     */
-    OrderEntity findOne(String orderID);
+	/**
+	 * @param orderID
+	 * @return
+	 */
+	OrderEntity findOne(String orderID);
 
-    /**
-     * @param customerID
-     * @return
-     */
+	/**
+	 * @param customerID
+	 * @return
+	 */
 	Set<OrderEntity> getOrdersForCustomer(String customerID);
 
 	Set<OrderEntity> findAllOrders();

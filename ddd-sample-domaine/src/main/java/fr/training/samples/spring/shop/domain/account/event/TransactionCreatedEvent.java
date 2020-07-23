@@ -18,20 +18,6 @@ public class TransactionCreatedEvent extends Event {
 	private final Money transactionAmount;
 
 	/**
-	 * @return the transactionType
-	 */
-	public TransactionType getTransactionType() {
-		return transactionType;
-	}
-
-	/**
-	 * @return the transactionAmount
-	 */
-	public Money getTransactionAmount() {
-		return transactionAmount;
-	}
-
-	/**
 	 * Private constructor to enforce Builder usage
 	 */
 	private TransactionCreatedEvent(final Builder builder) {
@@ -47,10 +33,25 @@ public class TransactionCreatedEvent extends Event {
 	}
 
 	/**
+	 * @return the transactionType
+	 */
+	public TransactionType getTransactionType() {
+		return transactionType;
+	}
+
+	/**
+	 * @return the transactionAmount
+	 */
+	public Money getTransactionAmount() {
+		return transactionAmount;
+	}
+
+	/**
 	 * Builder pattern to ensure TransactionCreatedEvent is immutable.
 	 */
 	public static class Builder {
 		private TransactionType transactionType;
+
 		private Money transactionAmount;
 
 		public Builder transactionType(final TransactionType transactionType) {

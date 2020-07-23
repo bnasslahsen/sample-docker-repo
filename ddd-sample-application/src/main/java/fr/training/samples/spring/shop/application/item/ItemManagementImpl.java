@@ -22,7 +22,7 @@ public class ItemManagementImpl implements ItemManagement {
 	/**
 	 * itemRepository of type ItemRepository
 	 */
-	private final  ItemRepository itemRepository;
+	private final ItemRepository itemRepository;
 
 	/**
 	 * @param itemRepository
@@ -41,7 +41,6 @@ public class ItemManagementImpl implements ItemManagement {
 	@Override
 	@Cacheable("itemCache")
 	public List<ItemEntity> getAllItems() {
-		System.out.println("tototot");
 		return itemRepository.getAllItems();
 	}
 

@@ -11,48 +11,47 @@ import fr.training.samples.spring.shop.domain.customer.CustomerVO;
  */
 public class CustomerEntity extends AbstractBaseEntity {
 
-    /**
-     * customerVO of type CustomerVO
-     */
-    @Valid
-    private CustomerVO customerVO;
+	/**
+	 * customerVO of type CustomerVO
+	 */
+	@Valid
+	private CustomerVO customerVO;
 
-    /**
-     * 
-     */
-    public CustomerEntity() {
-        super();
-    }
+	/**
+	 *
+	 */
+	public CustomerEntity() {
+		super();
+	}
 
-    /**
-     * @param customerVO
-     */
-    public CustomerEntity(final CustomerVO customerVO) {
-        this.customerVO = customerVO;
-    }
+	/**
+	 * @param customerVO
+	 */
+	public CustomerEntity(final CustomerVO customerVO) {
+		this.customerVO = customerVO;
+	}
 
-    /**
-     * @return
-     */
-    public CustomerVO getCustomerVO() {
-        return customerVO;
-    }
+	/**
+	 * @return
+	 */
+	public CustomerVO getCustomerVO() {
+		return customerVO;
+	}
 
-    /**
-     * @param customerVO
-     */
-    public void setCustomerVO(final CustomerVO customerVO) {
-        this.customerVO = customerVO;
-    }
+	/**
+	 * @param customerVO
+	 */
+	public void setCustomerVO(final CustomerVO customerVO) {
+		this.customerVO = customerVO;
+	}
 
-    /*
-     * (non-Javadoc)
-     * @see fr.training.samples.spring.shop.common.AbstractBaseEntity#toString()
-     */
-    @Override
-    public String toString() {
-        return "CustomerEntity [customerVO=" + customerVO + ", toString()=" + super.toString() + "]";
-    }
-
+	/*
+	 * (non-Javadoc)
+	 * @see fr.training.samples.spring.shop.common.AbstractBaseEntity#toString()
+	 */
+	@Override
+	public String toString() {
+		return "CustomerEntity [customerVO=" + customerVO + ", toString()=" + super.toString() + "]";
+	}
 
 }

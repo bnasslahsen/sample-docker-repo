@@ -12,10 +12,10 @@ import static org.junit.Assert.assertEquals;
  */
 public class AccountStatusTest {
 
-	private AccountStatus status;
-
 	@Rule
 	public ExpectedException expectedEx = ExpectedException.none();
+
+	private AccountStatus status;
 
 	@Test
 	public void activeToSuspendedTransitionShouldSuccess() {

@@ -20,6 +20,7 @@ import org.springframework.stereotype.Component;
 public class AccountNumberServiceMock implements AccountNumberServicePort {
 
 	private static final String MOCK_IBAN = "FR7630004250426062439668469";
+
 	private static final Logger LOGGER = LoggerFactory.getLogger(AccountNumberServiceAdapter.class);
 
 	private final List<String> list = Arrays.asList("FR1030004096910384684503644", "FR0630004227392330913861105",

@@ -25,12 +25,12 @@ import static org.junit.Assert.assertThat;
  */
 public class BankAccountSteps {
 
+	@Rule
+	public ExpectedException expectedEx = ExpectedException.none();
+
 	private BankAccount bankAccount;
 
 	private Exception ex;
-
-	@Rule
-	public ExpectedException expectedEx = ExpectedException.none();
 
 	@Given("^An account \"([^\"]*)\" with Currency is \"([^\"]*)\"$")
 	public void an_account_with_Currency_is(final String accountNumber, final String currency) throws Throwable {
@@ -60,7 +60,8 @@ public class BankAccountSteps {
 	public void i_withdraw_from_account(final int amount, final String currency) throws Throwable {
 		try {
 			bankAccount.debit(Money.of(BigDecimal.valueOf(amount), Currency.getInstance(currency)));
-		} catch (final Exception e) {
+		}
+		catch (final Exception e) {
 			ex = e;
 		}
 	}
@@ -69,7 +70,8 @@ public class BankAccountSteps {
 	public void i_deposit(final int amount, final String currency) throws Throwable {
 		try {
 			bankAccount.credit(Money.of(BigDecimal.valueOf(amount), Currency.getInstance(currency)));
-		} catch (final Exception e) {
+		}
+		catch (final Exception e) {
 			ex = e;
 		}
 	}

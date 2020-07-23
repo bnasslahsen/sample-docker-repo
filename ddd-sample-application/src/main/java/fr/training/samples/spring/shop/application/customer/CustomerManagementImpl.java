@@ -18,7 +18,7 @@ public class CustomerManagementImpl implements CustomerManagement {
 	/**
 	 * customerRepository of type CustomerRepository
 	 */
-	private final  CustomerRepository customerRepository;
+	private final CustomerRepository customerRepository;
 
 	/**
 	 * @param customerRepository

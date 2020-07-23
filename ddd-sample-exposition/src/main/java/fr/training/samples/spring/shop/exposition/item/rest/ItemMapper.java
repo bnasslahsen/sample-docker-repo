@@ -8,10 +8,10 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author bnasslahsen Mapper for the entity ItemEntity and its DTO ItemDTO.
- * 
+ *
  */
 @Component
-public class ItemMapper extends AbstractMapper<ItemDTO, ItemEntity> {
+public class ItemMapper implements AbstractMapper<ItemDTO, ItemEntity> {
 
 	@Override
 	public ItemDTO mapToDto(ItemEntity entity) {

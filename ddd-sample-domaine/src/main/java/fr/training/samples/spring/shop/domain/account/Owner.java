@@ -32,6 +32,29 @@ public class Owner extends AbstractBaseEntity {
 	private String email;
 
 	/**
+	 * Private constructor to enforce Builder usage
+	 */
+	private Owner(final Builder builder) {
+		lastName = builder.lastName;
+		firstName = builder.firstName;
+		email = builder.email;
+	}
+
+	/**
+	 * Default constructor required for JPA
+	 */
+	public Owner() {
+		super();
+	}
+
+	/**
+	 * Builder static assessor
+	 */
+	public static Builder builder() {
+		return new Builder();
+	}
+
+	/**
 	 * @return the lastName
 	 */
 	public String getLastName() {
@@ -59,75 +82,6 @@ public class Owner extends AbstractBaseEntity {
 	 */
 	public String getfullName() {
 		return firstName.concat(SPACE).concat(lastName);
-	}
-
-	/**
-	 * Private constructor to enforce Builder usage
-	 */
-	private Owner(final Builder builder) {
-		lastName = builder.lastName;
-		firstName = builder.firstName;
-		email = builder.email;
-	}
-
-	/**
-	 * Default constructor required for JPA
-	 */
-	public Owner() {
-		super();
-	}
-
-	/**
-	 * Builder static assessor
-	 */
-	public static Builder builder() {
-		return new Builder();
-	}
-
-	/**
-	 * Builder pattern to ensure Owner object is immutable.
-	 */
-	public static class Builder {
-		private String lastName;
-		private String firstName;
-		private String email;
-
-		/**
-		 * Sets the lastName to the specified value.
-		 */
-		public Builder lastName(@NotNull final String lastName) {
-			this.lastName = lastName;
-			return this;
-		}
-
-		/**
-		 * Sets the firstName to the specified value.
-		 */
-		public Builder firstName(@NotNull final String firstName) {
-			this.firstName = firstName;
-			return this;
-		}
-
-		/**
-		 * Sets the email to the specified value.
-		 */
-		public Builder email(@NotNull final String email) {
-			this.email = email;
-			return this;
-		}
-
-		/**
-		 * Construct the Owner
-		 *
-		 * @return the new Owner instance
-		 */
-		public Owner build() {
-			Validate.notNull(lastName, "Owner last name cannot be null!");
-			Validate.notNull(firstName, "Owner last name cannot be null!");
-			Validate.notNull(email, "Owner email cannot be null!");
-
-			return new Owner(this);
-		}
 	}
 
 	/*
@@ -180,6 +134,54 @@ public class Owner extends AbstractBaseEntity {
 				.append(getFirstName()) //
 				.append(getEmail()) //
 				.toString();
+	}
+
+	/**
+	 * Builder pattern to ensure Owner object is immutable.
+	 */
+	public static class Builder {
+		private String lastName;
+
+		private String firstName;
+
+		private String email;
+
+		/**
+		 * Sets the lastName to the specified value.
+		 */
+		public Builder lastName(@NotNull final String lastName) {
+			this.lastName = lastName;
+			return this;
+		}
+
+		/**
+		 * Sets the firstName to the specified value.
+		 */
+		public Builder firstName(@NotNull final String firstName) {
+			this.firstName = firstName;
+			return this;
+		}
+
+		/**
+		 * Sets the email to the specified value.
+		 */
+		public Builder email(@NotNull final String email) {
+			this.email = email;
+			return this;
+		}
+
+		/**
+		 * Construct the Owner
+		 *
+		 * @return the new Owner instance
+		 */
+		public Owner build() {
+			Validate.notNull(lastName, "Owner last name cannot be null!");
+			Validate.notNull(firstName, "Owner last name cannot be null!");
+			Validate.notNull(email, "Owner email cannot be null!");
+
+			return new Owner(this);
+		}
 	}
 
 }

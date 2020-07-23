@@ -38,16 +38,6 @@ public class CustomerResource {
 	private final CustomerManagement customerManagement;
 
 	/**
-	 * @param customerID
-	 * @return
-	 */
-	@GetMapping("/customers/{customerID}")
-	public CustomerDTO getCustomer(@PathVariable final String customerID) {
-		final CustomerEntity customerEntity = customerManagement.findOne(customerID);
-		return customeEntityMapper.mapToDto(customerEntity);
-	}
-
-	/**
 	 * @param customeEntityMapper
 	 * @param customerManagement
 	 */
@@ -56,6 +46,16 @@ public class CustomerResource {
 		super();
 		this.customeEntityMapper = customeEntityMapper;
 		this.customerManagement = customerManagement;
+	}
+
+	/**
+	 * @param customerID
+	 * @return
+	 */
+	@GetMapping("/customers/{customerID}")
+	public CustomerDTO getCustomer(@PathVariable final String customerID) {
+		final CustomerEntity customerEntity = customerManagement.findOne(customerID);
+		return customeEntityMapper.mapToDto(customerEntity);
 	}
 
 	/**

@@ -11,13 +11,14 @@ import org.springframework.stereotype.Component;
 /**
  * Mapper for the entity CustomeEntity and its DTO CustomeDTO.
  */
+
 /**
  * @author bnasslahsen
  *
  */
 
 @Component
-public class CustomerMapper extends AbstractMapper<CustomerDTO, CustomerEntity> {
+public class CustomerMapper implements AbstractMapper<CustomerDTO, CustomerEntity> {
 
 	@Override
 	public CustomerDTO mapToDto(CustomerEntity entity) {

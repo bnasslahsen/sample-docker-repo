@@ -27,6 +27,23 @@ public class AccountCreatedEvent extends Event {
 	private final List<Owner> owners;
 
 	/**
+	 *
+	 * @param builder
+	 */
+	private AccountCreatedEvent(final Builder builder) {
+		accountNumber = builder.accountNumber;
+		overDraftPolicy = builder.overDraftPolicy;
+		owners = builder.owners;
+	}
+
+	/**
+	 * Builder static assessor
+	 */
+	public static Builder builder() {
+		return new Builder();
+	}
+
+	/**
 	 * @return the accountNumber
 	 */
 	public AccountNumber getAccountNumber() {
@@ -48,21 +65,13 @@ public class AccountCreatedEvent extends Event {
 	}
 
 	/**
-	 *
-	 * @param builder
-	 */
-	private AccountCreatedEvent(final Builder builder) {
-		accountNumber = builder.accountNumber;
-		overDraftPolicy = builder.overDraftPolicy;
-		owners = builder.owners;
-	}
-
-	/**
 	 * Builder pattern
 	 */
 	public static class Builder {
 		private AccountNumber accountNumber;
+
 		private OverDraftPolicy overDraftPolicy;
+
 		private List<Owner> owners;
 
 		public Builder accountNumber(final AccountNumber accountNumber) {
@@ -84,12 +93,5 @@ public class AccountCreatedEvent extends Event {
 			return new AccountCreatedEvent(this);
 		}
 
-	}
-
-	/**
-	 * Builder static assessor
-	 */
-	public static Builder builder() {
-		return new Builder();
 	}
 }

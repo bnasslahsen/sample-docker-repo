@@ -19,12 +19,12 @@ import org.springframework.util.CollectionUtils;
  *
  */
 @Component
-public class OrderMapper extends AbstractMapper<OrderDTO, OrderEntity> {
+public class OrderMapper implements AbstractMapper<OrderDTO, OrderEntity> {
 
 	/**
 	 * itemMapper of type ItemMapper
 	 */
-	private  final ItemMapper itemMapper;
+	private final ItemMapper itemMapper;
 
 	public OrderMapper(ItemMapper itemMapper) {
 		super();

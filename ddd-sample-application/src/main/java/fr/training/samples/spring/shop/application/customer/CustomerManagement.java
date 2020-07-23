@@ -9,16 +9,16 @@ import fr.training.samples.spring.shop.domain.customer.entity.CustomerEntity;
  */
 public interface CustomerManagement {
 
-    /**
-     * @param customer
-     * @return
-     */
-    CustomerEntity create(CustomerEntity customer);
+	/**
+	 * @param customer
+	 * @return
+	 */
+	CustomerEntity create(CustomerEntity customer);
 
-    /**
-     * @param customerID
-     * @return
-     */
+	/**
+	 * @param customerID
+	 * @return
+	 */
 	CustomerEntity findOne(String customerID);
 
 	/**

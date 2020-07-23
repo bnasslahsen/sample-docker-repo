@@ -22,30 +22,30 @@ import static org.junit.Assert.assertNotNull;
 @DataJpaTest
 public class CustomerJpaRepositoryTest {
 
-    /**
-     * customerRepository of type CustomerRepository
-     */
-    @Autowired
-    private  CustomerRepository customerRepository;
-
-    @Test
-    public void testCreateAndFind() {
-        final CustomerEntity customer = new CustomerEntity(new CustomerVO("nass", "123456"));
-        customerRepository.create(customer);
-        final CustomerEntity customerCreated = customerRepository.findOne(customer.getId());
-        assertNotNull(customerCreated);
-        assertEquals("nass", customerCreated.getCustomerVO().getName());
-	}
-
-    @Test
-    public void testFindOne() {
-        final CustomerEntity customerEntity = customerRepository.findOne("123e4567-e89b-42d3-a456-556642440000");
-        assertNotNull(customerEntity);
-        assertEquals("NAME1", customerEntity.getCustomerVO().getName());
-    }
+	/**
+	 * customerRepository of type CustomerRepository
+	 */
+	@Autowired
+	private CustomerRepository customerRepository;
 
 	@Test
-    public void testUpdate() {
+	public void testCreateAndFind() {
+		final CustomerEntity customer = new CustomerEntity(new CustomerVO("nass", "123456"));
+		customerRepository.create(customer);
+		final CustomerEntity customerCreated = customerRepository.findOne(customer.getId());
+		assertNotNull(customerCreated);
+		assertEquals("nass", customerCreated.getCustomerVO().getName());
+	}
+
+	@Test
+	public void testFindOne() {
+		final CustomerEntity customerEntity = customerRepository.findOne("123e4567-e89b-42d3-a456-556642440000");
+		assertNotNull(customerEntity);
+		assertEquals("NAME1", customerEntity.getCustomerVO().getName());
+	}
+
+	@Test
+	public void testUpdate() {
 		CustomerEntity customerEntity = customerRepository.findOne("123e4567-e89b-42d3-a456-556642440000");
 		customerEntity.setCustomerVO(new CustomerVO("nass", "1234567"));
 		customerRepository.update(customerEntity);

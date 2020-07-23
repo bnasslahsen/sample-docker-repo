@@ -32,9 +32,14 @@ public class BankAccount extends AbstractBaseEntity implements EventAware {
 	private static final Logger LOG = LoggerFactory.getLogger(BankAccount.class);
 
 	/**
+	 * Person list who own the account
+	 */
+	private final List<Owner> owners = new ArrayList<>();
+
+	/**
 	 * Maintain event list of Event occured on aggregate.
 	 */
-	private transient List<Event> events = new ArrayList<Event>();
+	private transient List<Event> events = new ArrayList<>();
 
 	/**
 	 * Business identifier kwown by external provider
@@ -69,11 +74,6 @@ public class BankAccount extends AbstractBaseEntity implements EventAware {
 	private LocalDate createdDate;
 
 	/**
-	 * Person list who own the account
-	 */
-	private final List<Owner> owners = new ArrayList<Owner>();
-
-	/**
 	 * Default constructor required for JPA
 	 */
 	public BankAccount() {
@@ -102,6 +102,13 @@ public class BankAccount extends AbstractBaseEntity implements EventAware {
 				.overDraftPolicy(overDraftPolicy) //
 				.owners(owners) //
 				.build());
+	}
+
+	/**
+	 * Builder static assessor
+	 */
+	public static Builder builder() {
+		return new Builder();
 	}
 
 	/**
@@ -310,11 +317,14 @@ public class BankAccount extends AbstractBaseEntity implements EventAware {
 				.toString();
 	}
 
-	/**
-	 * Builder static assessor
-	 */
-	public static Builder builder() {
-		return new Builder();
+	@Override
+	public List<Event> getEvents() {
+		return events;
+	}
+
+	@Override
+	public void clearEvents() {
+		events.clear();
 	}
 
 	/**
@@ -355,7 +365,7 @@ public class BankAccount extends AbstractBaseEntity implements EventAware {
 		 */
 		public Builder addOwner(final Owner owner) {
 			if (owners == null) {
-				owners = new ArrayList<Owner>();
+				owners = new ArrayList<>();
 			}
 			owners.add(owner);
 			return this;
@@ -375,20 +385,10 @@ public class BankAccount extends AbstractBaseEntity implements EventAware {
 			Validate.notNull(accountNumber, "Account number cannot be null!");
 			Validate.notNull(overDraftPolicy, "OverDraft policy Number cannot be null!");
 			Validate.notNull(overdraftProtectionAmount, "OverDraft protection amount Number cannot be null!");
-			Validate.isTrue(owners != null && owners.size() > 0, "Account must have et least one owner");
+			Validate.isTrue(owners != null && !owners.isEmpty(), "Account must have et least one owner");
 			return new BankAccount(this);
 		}
 
-	}
-
-	@Override
-	public List<Event> getEvents() {
-		return events;
-	}
-
-	@Override
-	public void clearEvents() {
-		events.clear();
 	}
 
 }

@@ -30,7 +30,7 @@ public interface BankAccountRepositoryPort {
 
 	/**
 	 * Find bank account by his id.
-	 * 
+	 *
 	 * @param id
 	 *            bank account
 	 * @return the bank account if found

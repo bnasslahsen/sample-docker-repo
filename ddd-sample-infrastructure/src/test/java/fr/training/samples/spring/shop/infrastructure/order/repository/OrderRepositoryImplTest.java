@@ -31,74 +31,74 @@ import static org.junit.Assert.assertNotNull;
 @DataJpaTest
 public class OrderRepositoryImplTest {
 
-    /**
-     * orderRepository of type OrderRepository
-     */
-    @Autowired
-    private  OrderRepository orderRepository;
+	/**
+	 * orderRepository of type OrderRepository
+	 */
+	@Autowired
+	private OrderRepository orderRepository;
 
-    /**
-     * itemRepository of type ItemRepository
-     */
-    @Autowired
-    private  ItemRepository itemRepository;
+	/**
+	 * itemRepository of type ItemRepository
+	 */
+	@Autowired
+	private ItemRepository itemRepository;
 
-    /**
-     * customerRepository of type CustomerRepository
-     */
-    @Autowired
-    private  CustomerRepository customerRepository;
-    
+	/**
+	 * customerRepository of type CustomerRepository
+	 */
+	@Autowired
+	private CustomerRepository customerRepository;
 
-    /**
-     * @param customerId
-     * @param itemId
-     * @param price
-     * @return
-     */
-    private OrderEntity createOrder(final String customerId, final String itemId, final int price) {
-        final CustomerEntity customer = customerRepository.findOne(customerId);
-        final ItemEntity itemEntity = itemRepository.findOne(itemId);
-        final OrderEntity orderEntity = new OrderEntity();
-        orderEntity.setCustomer(customer);
+
+	/**
+	 * @param customerId
+	 * @param itemId
+	 * @param price
+	 * @return
+	 */
+	private OrderEntity createOrder(final String customerId, final String itemId, final int price) {
+		final CustomerEntity customer = customerRepository.findOne(customerId);
+		final ItemEntity itemEntity = itemRepository.findOne(itemId);
+		final OrderEntity orderEntity = new OrderEntity();
+		orderEntity.setCustomer(customer);
 		orderEntity.setItems(new HashSet<ItemEntity>(Arrays.asList(itemEntity)));
 		return orderEntity;
-    }
+	}
 
-    /**
-     * 
-     */
-    @Test
-    public void testAddOrder() {
+	/**
+	 *
+	 */
+	@Test
+	public void testAddOrder() {
 		final OrderEntity orderEntity = this.createOrder("123e4567-e89b-42d3-a456-556642440000",
 				"123e4567-e89b-42d3-a456-556642440001", 99);
-        orderRepository.addOrder(orderEntity);
-        assertNotNull(orderEntity.getId());
-    }
+		orderRepository.addOrder(orderEntity);
+		assertNotNull(orderEntity.getId());
+	}
 
-    /**
-     * 
-     */
-    @Test
-    public void testAddOrders() {
+	/**
+	 *
+	 */
+	@Test
+	public void testAddOrders() {
 		final OrderEntity orderEntity1 = this.createOrder("123e4567-e89b-42d3-a456-556642440000",
 				"123e4567-e89b-42d3-a456-556642440001", 99);
 		final OrderEntity orderEntity2 = this.createOrder("123e4567-e89b-42d3-a456-556642440000",
 				"123e4567-e89b-42d3-a456-556642440002", 99);
-        final List<OrderEntity> orders = Stream.of(orderEntity1, orderEntity2).collect(Collectors.toList());
-        orderRepository.addOrders(orders);
-        assertNotNull(orderEntity1.getId());
-        assertNotNull(orderEntity2.getId());
-    }
+		final List<OrderEntity> orders = Stream.of(orderEntity1, orderEntity2).collect(Collectors.toList());
+		orderRepository.addOrders(orders);
+		assertNotNull(orderEntity1.getId());
+		assertNotNull(orderEntity2.getId());
+	}
 
-    /**
-     * 
-     */
-    @Test
-    public void testGetOrdersForCustomer() {
+	/**
+	 *
+	 */
+	@Test
+	public void testGetOrdersForCustomer() {
 		final Set<OrderEntity> orders = orderRepository.getOrdersForCustomer("123e4567-e89b-42d3-a456-556642440000");
 		assertNotNull(orders);
-        assertEquals(2, orders.size());
-    }
+		assertEquals(2, orders.size());
+	}
 
 }

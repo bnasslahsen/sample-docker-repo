@@ -79,18 +79,18 @@ public class MoneyTest {
 	@Test
 	public void testGetCurrency_1() {
 
-    // final Money fixture = Money.of(new BigDecimal(1.0), Currency.getInstance(Locale.getDefault()));
-    // // When
-    // final Currency result = fixture.getCurrency();
-    //
-    // // Then
-    // assertThat(result, notNullValue());
-    // assertThat(result.toString(), equalTo("EUR"));
-    // assertThat(result.getDisplayName(), equalTo("euro"));
-    // assertThat(result.getDefaultFractionDigits(), equalTo(2));
-    // assertThat(result.getCurrencyCode(), equalTo("EUR"));
-    // assertThat(result.getSymbol(), equalTo("€"));
-    // assertThat(result.getNumericCode(), equalTo(978));
+		// final Money fixture = Money.of(new BigDecimal(1.0), Currency.getInstance(Locale.getDefault()));
+		// // When
+		// final Currency result = fixture.getCurrency();
+		//
+		// // Then
+		// assertThat(result, notNullValue());
+		// assertThat(result.toString(), equalTo("EUR"));
+		// assertThat(result.getDisplayName(), equalTo("euro"));
+		// assertThat(result.getDefaultFractionDigits(), equalTo(2));
+		// assertThat(result.getCurrencyCode(), equalTo("EUR"));
+		// assertThat(result.getSymbol(), equalTo("€"));
+		// assertThat(result.getNumericCode(), equalTo(978));
 	}
 
 	/**
@@ -252,15 +252,15 @@ public class MoneyTest {
 	@Test
 	public void testSubstract_1() {
 
-    // // Given
-    // final Money fixture = Money.of(new BigDecimal(1.0), Currency.getInstance(Locale.getDefault()));
-    // final Money other = Money.zero();
-    // // When
-    // final Money result = fixture.substract(other);
-    //
-    // // Then
-    // assertThat(result, notNullValue());
-    // assertThat(result.isZero(), equalTo(false));
+		// // Given
+		// final Money fixture = Money.of(new BigDecimal(1.0), Currency.getInstance(Locale.getDefault()));
+		// final Money other = Money.zero();
+		// // When
+		// final Money result = fixture.substract(other);
+		//
+		// // Then
+		// assertThat(result, notNullValue());
+		// assertThat(result.isZero(), equalTo(false));
 	}
 
 	/**

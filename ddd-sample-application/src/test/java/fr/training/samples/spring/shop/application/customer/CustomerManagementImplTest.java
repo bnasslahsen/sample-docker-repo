@@ -23,36 +23,36 @@ import static org.mockito.Mockito.when;
 @SpringBootTest
 public class CustomerManagementImplTest {
 
-    /**
-     * customerManagement of type CustomerManagement
-     */
-    @Autowired
-    private  CustomerManagement customerManagement;
+	/**
+	 * customerManagement of type CustomerManagement
+	 */
+	@Autowired
+	private CustomerManagement customerManagement;
 
-    /**
-     * customerRepository of type CustomerRepository
-     */
-    @MockBean
-    private  CustomerRepository customerRepository;
+	/**
+	 * customerRepository of type CustomerRepository
+	 */
+	@MockBean
+	private CustomerRepository customerRepository;
 
-    @Test
-    public void testCreate() {
-        CustomerEntity customerEntity = initCustomerEntity();
-        when(customerRepository.create(customerEntity)).thenReturn(customerEntity);
-        CustomerEntity customerResultEntity = customerManagement.create(customerEntity);
-        assertNotNull(customerResultEntity);
-        assertEquals("NAME1", customerResultEntity.getCustomerVO().getName());
-    }
+	@Test
+	public void testCreate() {
+		CustomerEntity customerEntity = initCustomerEntity();
+		when(customerRepository.create(customerEntity)).thenReturn(customerEntity);
+		CustomerEntity customerResultEntity = customerManagement.create(customerEntity);
+		assertNotNull(customerResultEntity);
+		assertEquals("NAME1", customerResultEntity.getCustomerVO().getName());
+	}
 
 
-    @Test
-    public void testFindOne() {
-        CustomerEntity customerEntity = initCustomerEntity();
-        customerEntity.setId("123e4567-e89b-42d3-a456-556642440000");
-        when(customerRepository.findOne("123e4567-e89b-42d3-a456-556642440000")).thenReturn(customerEntity);
-        CustomerEntity customerResultEntity = customerManagement.findOne("123e4567-e89b-42d3-a456-556642440000");
-        assertEquals("NAME1", customerResultEntity.getCustomerVO().getName());
-    }
+	@Test
+	public void testFindOne() {
+		CustomerEntity customerEntity = initCustomerEntity();
+		customerEntity.setId("123e4567-e89b-42d3-a456-556642440000");
+		when(customerRepository.findOne("123e4567-e89b-42d3-a456-556642440000")).thenReturn(customerEntity);
+		CustomerEntity customerResultEntity = customerManagement.findOne("123e4567-e89b-42d3-a456-556642440000");
+		assertEquals("NAME1", customerResultEntity.getCustomerVO().getName());
+	}
 
 	@Test
 	public void testUpdate() {

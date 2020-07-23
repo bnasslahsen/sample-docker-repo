@@ -12,24 +12,24 @@ import fr.training.samples.spring.shop.domain.order.entity.OrderEntity;
  */
 public interface OrderManagement {
 
-    /**
-     * @param order
-     * @return
-     */
-    OrderEntity addOrder(OrderEntity order);
+	/**
+	 * @param order
+	 * @return
+	 */
+	OrderEntity addOrder(OrderEntity order);
 
-    /**
-     * @param orderID
-     * @return
-     */
-    OrderEntity findOne(String orderID);
+	/**
+	 * @param orderID
+	 * @return
+	 */
+	OrderEntity findOne(String orderID);
 
-    /**
-     * @param customerID
-     * @return
-     */
+	/**
+	 * @param customerID
+	 * @return
+	 */
 	Set<OrderEntity> getOrdersForCustomer(String customerID);
-	
+
 	void addOrders(List<OrderEntity> orders);
 
 	Set<OrderEntity> findAllOrders();

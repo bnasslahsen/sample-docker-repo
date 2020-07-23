@@ -14,30 +14,30 @@ import fr.training.samples.spring.shop.domain.order.entity.OrderEntity;
  */
 public class ItemEntity extends AbstractBaseEntity {
 
-    /**
-     * itemVO of type ItemVO
-     */
-    @Valid
-    private ItemVO itemVO;
+	/**
+	 * itemVO of type ItemVO
+	 */
+	@Valid
+	private ItemVO itemVO;
 
-    /**
+	/**
 	 * orders of type Set<OrderEntity>
 	 */
 	private Set<OrderEntity> orders;
 
-    /**
-     * 
-     */
-    public ItemEntity() {
-        super();
-    }
+	/**
+	 *
+	 */
+	public ItemEntity() {
+		super();
+	}
 
-    /**
-     * @param itemVO
-     */
-    public ItemEntity(final ItemVO itemVO) {
-        this.itemVO = itemVO;
-    }
+	/**
+	 * @param itemVO
+	 */
+	public ItemEntity(final ItemVO itemVO) {
+		this.itemVO = itemVO;
+	}
 
 
 	public ItemEntity(String id) {
@@ -47,28 +47,28 @@ public class ItemEntity extends AbstractBaseEntity {
 	/**
 	 * @return
 	 */
-    public ItemVO getItemVO() {
-        return itemVO;
-    }
+	public ItemVO getItemVO() {
+		return itemVO;
+	}
 
-    /**
-     * @return
-     */
+	/**
+	 * @param itemVO
+	 */
+	public void setItemVO(final ItemVO itemVO) {
+		this.itemVO = itemVO;
+	}
+
+	/**
+	 * @return
+	 */
 	public Set<OrderEntity> getOrders() {
-        return orders;
-    }
+		return orders;
+	}
 
-    /**
-     * @param itemVO
-     */
-    public void setItemVO(final ItemVO itemVO) {
-        this.itemVO = itemVO;
-    }
-
-    /**
-     * @param orders
-     */
+	/**
+	 * @param orders
+	 */
 	public void setOrders(final Set<OrderEntity> orders) {
-        this.orders = orders;
-    }
+		this.orders = orders;
+	}
 }

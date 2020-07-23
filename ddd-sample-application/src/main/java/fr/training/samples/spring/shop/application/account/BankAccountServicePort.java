@@ -7,17 +7,17 @@ import fr.training.samples.spring.shop.domain.common.vo.AccountNumber;
 import fr.training.samples.spring.shop.domain.common.vo.Money;
 
 /**
- * 
+ *
  */
 public interface BankAccountServicePort {
 
 	/**
-   * Create a new Bank account
-   *
-   * @param overDraftAmount overDraft Amount authorized
-   * @param owners Bank account owners
-   * @return BankAccount the bank account
-   */
+	 * Create a new Bank account
+	 *
+	 * @param overDraftAmount overDraft Amount authorized
+	 * @param owners Bank account owners
+	 * @return BankAccount the bank account
+	 */
 	BankAccount createAccount(Money overDraftAmount, Owner... owners);
 
 	/**
