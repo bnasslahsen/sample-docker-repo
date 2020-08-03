@@ -1,4 +1,7 @@
 def dockerImage
+def pushToRegitry = {
+      dockerImage.push("${env.BUILD_NUMBER}")
+}
 
 pipeline {
    agent any
@@ -38,8 +41,7 @@ pipeline {
 		stage('Deploy Image') {
 		  steps{
 		   script {
-			  docker.withRegistry('https://registry.hub.docker.com', 'docker-login',null)
-			        dockerImage.push("${env.BUILD_NUMBER}")
+			  docker.withRegistry('https://registry.hub.docker.com', 'docker-login',pushToRegitry)
 			  }
 			}
 		  }
