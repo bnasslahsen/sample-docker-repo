@@ -9,19 +9,21 @@ pipeline {
 				args '-v /var/lib/jenkins/.m2:/root/.m2'
 			}
 		}
-		stage('Test') {
-			steps {
-			//	sh 'mvn -B clean test'
-				sh 'echo hi'
+		stages {
+			stage('Test') {
+				steps {
+				//	sh 'mvn -B clean test'
+					sh 'echo hi'
+				}
 			}
-		}
-		stage('Build') {
-			steps {
-				sh 'mvn -B -DskipTests package'
-				archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+			stage('Build') {
+				steps {
+					sh 'mvn -B -DskipTests package'
+					archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+				}
 			}
-		}
-      }
+		  }
+	  }
 	  stage('stuff not in docker') {
 		stage('build docker') {
 			steps {
