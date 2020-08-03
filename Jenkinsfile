@@ -24,8 +24,7 @@ pipeline {
 			}
 		  }
 	  }
-	  stage('stuff not in docker') {
-		stage('build docker') {
+	  stage('build docker') {
 			steps {
 			  script {
 				sh "mkdir -p target"
@@ -43,7 +42,6 @@ pipeline {
 			  }
 			}
 		  }
-		}
 	}
 }
 
