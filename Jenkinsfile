@@ -24,7 +24,7 @@ pipeline {
 		stage('build docker') {
 			steps {
 			  script {
-				// sh "sudo mkdir target"
+				sh "mkdir -p target"
 				sh "cp -R ddd-sample-exposition/Dockerfile target/"
 				sh "cp -R ddd-sample-exposition/target/* target/"
 				dockerImage = docker.build('bnasslahsen/jenkins-repo', 'target')
