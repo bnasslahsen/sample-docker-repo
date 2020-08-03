@@ -31,7 +31,7 @@ pipeline {
 				sh "mkdir -p target"
 				sh "cp -R ddd-sample-exposition/Dockerfile target/"
 				sh "cp -R ddd-sample-exposition/target/* target/"
-				dockerImage = docker.build('bnasslahsen/jenkins-repo:${env.BUILD_ID}', 'target')
+				dockerImage = docker.build('bnasslahsen/jenkins-repo', 'target')
 				}
 			}
 		}
@@ -39,7 +39,7 @@ pipeline {
 		  steps{
 		   script {
 			  docker.withRegistry('https://registry.hub.docker.com', 'docker-login')
-				dockerImage.push()
+			        dockerImage.push("${env.BUILD_NUMBER}")
 			  }
 			}
 		  }
