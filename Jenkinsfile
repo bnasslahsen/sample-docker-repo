@@ -38,7 +38,7 @@ pipeline {
 		stage('Deploy Image') {
 		  steps{
 		   script {
-			  docker.withRegistry('https://registry.hub.docker.com', 'docker-login')
+			  docker.withRegistry('https://registry.hub.docker.com', 'docker-login',null)
 			        dockerImage.push("${env.BUILD_NUMBER}")
 			  }
 			}
