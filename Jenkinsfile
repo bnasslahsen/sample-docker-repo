@@ -1,13 +1,14 @@
 def dockerImage
 
 pipeline {
-	agent {
-		docker {
-			image 'maven:3-alpine'
-			args '-v /var/lib/jenkins/.m2:/root/.m2'
-		}
-	}
 	stages {
+	  stage('do everything in docker') {
+		agent {
+			docker {
+				image 'maven:3-alpine'
+				args '-v /var/lib/jenkins/.m2:/root/.m2'
+			}
+		}
 		stage('Test') {
 			steps {
 			//	sh 'mvn -B clean test'
@@ -20,7 +21,8 @@ pipeline {
 				archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
 			}
 		}
-
+      }
+	  stage('stuff not in docker') {
 		stage('build docker') {
 			steps {
 			  script {
@@ -31,7 +33,6 @@ pipeline {
 				}
 			}
 		}
-
 		stage('Deploy Image') {
 		  steps{
 		   script {
@@ -40,7 +41,7 @@ pipeline {
 			  }
 			}
 		  }
-
+		}
 	}
 }
 
