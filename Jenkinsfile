@@ -1,7 +1,7 @@
 def dockerImage
 
 pipeline {
-    agent none
+   agent any
 	stages {
 	  stage('do everything in docker') {
 		agent {
@@ -25,17 +25,24 @@ pipeline {
 			}
 		  }
 	  }
-	}
-	node {
 	  stage('build docker') {
-			sh "mkdir -p target"
-			sh "cp -R ddd-sample-exposition/Dockerfile target/"
-			sh "cp -R ddd-sample-exposition/target/* target/"
-			dockerImage = docker.build('bnasslahsen/jenkins-repo', 'target')
+			steps {
+			  script {
+				sh "mkdir -p target"
+				sh "cp -R ddd-sample-exposition/Dockerfile target/"
+				sh "cp -R ddd-sample-exposition/target/* target/"
+				dockerImage = docker.build('bnasslahsen/jenkins-repo', 'target')
+				}
+			}
 		}
 		stage('Deploy Image') {
-		   docker.withRegistry('https://registry.hub.docker.com', 'docker-login')
-		   dockerImage.push()
+		  steps{
+		   script {
+			  docker.withRegistry('https://registry.hub.docker.com', 'docker-login')
+				dockerImage.push()
+			  }
+			}
 		  }
 	}
 }
+
