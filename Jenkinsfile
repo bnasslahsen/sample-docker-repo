@@ -27,24 +27,15 @@ pipeline {
 	  }
 	node {
 	  stage('build docker') {
-			steps {
-			  script {
-				sh "mkdir -p target"
-				sh "cp -R ddd-sample-exposition/Dockerfile target/"
-				sh "cp -R ddd-sample-exposition/target/* target/"
-				dockerImage = docker.build('bnasslahsen/jenkins-repo', 'target')
-				}
-			}
+			sh "mkdir -p target"
+			sh "cp -R ddd-sample-exposition/Dockerfile target/"
+			sh "cp -R ddd-sample-exposition/target/* target/"
+			dockerImage = docker.build('bnasslahsen/jenkins-repo', 'target')
 		}
 		stage('Deploy Image') {
-		  steps{
-		   script {
-			  docker.withRegistry('https://registry.hub.docker.com', 'docker-login')
-				dockerImage.push()
-			  }
-			}
+		   docker.withRegistry('https://registry.hub.docker.com', 'docker-login')
+		   dockerImage.push()
 		  }
 	}
     }
 }
-
