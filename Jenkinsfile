@@ -1,7 +1,3 @@
-def dockerImage
-def pushToRegitry = {
-      dockerImage.push("${env.BUILD_NUMBER}")
-}
 
 pipeline {
    agent any
@@ -28,6 +24,12 @@ pipeline {
 			}
 		  }
 	  }
+	def dockerImage
+	def pushToRegitry = {
+	      dockerImage.push()
+	      dockerImage.push("${env.BUILD_NUMBER}")
+	}
+		
 	  stage('build docker') {
 			steps {
 			  script {
