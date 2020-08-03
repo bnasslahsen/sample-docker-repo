@@ -38,7 +38,7 @@ pipeline {
 		stage('Deploy Image') {
 		  steps{
 		   script {
-			  docker.withRegistry( '', docker-login )
+			  docker.withRegistry( '', 'docker-login' )
 				dockerImage.push()
 			  }
 			}
