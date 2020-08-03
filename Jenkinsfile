@@ -1,5 +1,3 @@
-def dockerImage
-
 pipeline {
 	agent {
 		docker {
@@ -30,17 +28,13 @@ pipeline {
 				// sh "sudo mkdir target"
 				sh "sudo cp -R ddd-sample-exposition/Dockerfile target/"
 				sh "sudo cp -R ddd-sample-exposition/target/* target/"
-
-				dockerImage = docker.build('bnasslahsen/jenkins-repo', 'target')
-			}
-		}
-
-		stage('publish docker') {
-			steps {
+				def dockerImage = docker.build('bnasslahsen/jenkins-repo', 'target')
 				docker.withRegistry('https://registry.hub.docker.com', 'docker-login') {
 					dockerImage.push 'latest'
 				}
 			}
 		}
+
 	}
 }
+
