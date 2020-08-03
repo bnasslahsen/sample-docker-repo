@@ -25,6 +25,7 @@ pipeline {
 			}
 		  }
 	  }
+	}
 	node {
 	  stage('build docker') {
 			sh "mkdir -p target"
@@ -37,5 +38,4 @@ pipeline {
 		   dockerImage.push()
 		  }
 	}
-    }
 }
