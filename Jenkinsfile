@@ -1,9 +1,7 @@
 def dockerImage
 
 pipeline {
-   agent {
-        label 'OCI-CICD'
-    }
+    agent none
 	stages {
 	  stage('do everything in docker') {
 		agent {
