@@ -11,6 +11,7 @@ pipeline {
 		stage('Test') {
 			steps {
 			//	sh 'mvn -B clean test'
+				sh 'echo hi'
 			}
 		}
 		stage('Build') {
