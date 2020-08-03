@@ -25,6 +25,7 @@ pipeline {
 			}
 		  }
 	  }
+	node {
 	  stage('build docker') {
 			steps {
 			  script {
@@ -44,5 +45,6 @@ pipeline {
 			}
 		  }
 	}
+    }
 }
 
