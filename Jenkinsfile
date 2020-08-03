@@ -1,3 +1,5 @@
+def dockerImage
+
 pipeline {
 	agent {
 		docker {
@@ -19,12 +21,10 @@ pipeline {
 		stage('Build') {
 			steps {
 				sh 'mvn -B -DskipTests package'
-				archiveArtifacts artifacts: '**/target/*.jar',
-						fingerprint: true
+				archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
 			}
 		}
 
-		def dockerImage
 		stage('build docker') {
 			steps {
 				// sh "sudo mkdir target"
@@ -44,3 +44,4 @@ pipeline {
 		}
 	}
 }
+
