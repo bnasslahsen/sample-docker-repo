@@ -10,7 +10,7 @@ pipeline {
 	stages {
 		stage('Test') {
 			steps {
-				sh 'mvn -B clean test'
+			//	sh 'mvn -B clean test'
 			}
 		}
 		stage('Build') {
@@ -24,8 +24,8 @@ pipeline {
 			steps {
 			  script {
 				// sh "sudo mkdir target"
-				sh "sudo cp -R ddd-sample-exposition/Dockerfile target/"
-				sh "sudo cp -R ddd-sample-exposition/target/* target/"
+				sh "cp -R ddd-sample-exposition/Dockerfile target/"
+				sh "cp -R ddd-sample-exposition/target/* target/"
 				dockerImage = docker.build('bnasslahsen/jenkins-repo', 'target')
 				}
 			}
