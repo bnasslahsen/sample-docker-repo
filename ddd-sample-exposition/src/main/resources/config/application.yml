@@ -25,3 +25,6 @@ logging:
   level:
     ROOT: INFO
     org.springframework: INFO
+server:
+  tomcat:
+    max-threads: 1
