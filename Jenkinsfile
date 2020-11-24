@@ -39,7 +39,7 @@ node {
 
 	def dockerImage
 	stage('build docker') {
-		// sh "sudo mkdir target"
+		sh "sudo mkdir target"
 		sh "sudo cp -R ddd-sample-exposition/Dockerfile target/"
 		sh "sudo cp -R ddd-sample-exposition/target/* target/"
 
