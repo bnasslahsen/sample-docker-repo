@@ -16,7 +16,7 @@ node {
 
 		stage('backend tests') {
 			try {
-				sh "./mvnw test"
+				// sh "./mvnw test"
 			} catch (err) {
 				throw err
 			} finally {
