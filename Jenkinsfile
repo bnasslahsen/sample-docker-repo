@@ -16,17 +16,17 @@ node {
 
 		stage('backend tests') {
 			try {
-				// sh "./mvnw test"
+				 sh "./mvnw test"
 			} catch (err) {
 				throw err
 			} finally {
-				//junit '**/target/surefire-reports/TEST-*.xml'
+				junit '**/target/surefire-reports/TEST-*.xml'
 			}
 		}
 
 		stage('quality analysis') {
 			withSonarQubeEnv('Sonar') {
-			//	sh "./mvnw sonar:sonar"
+				sh "./mvnw sonar:sonar"
 			}
 		}
 
