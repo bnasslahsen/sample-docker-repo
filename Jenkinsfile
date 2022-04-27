@@ -2,7 +2,10 @@
 
 node {
 	stage('checkout') {
- 	 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'git-login', url: 'https://github.com/bnasslahsen/sample-docker-repo.git']]]) 
+                 deleteDir()
+
+                // Checkout the repository
+                checkout scm 
 	}
 	docker.image("openjdk:11-jdk-slim").inside('--network="host" -u root -v $HOME/.m2:/root/.m2') {
 		stage('check java') {
