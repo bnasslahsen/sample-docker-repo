@@ -4,7 +4,7 @@ node {
 	stage('checkout') {
 		checkout scm
 	}
-	docker.image('maven:3.8.5-openjdk-11-slim') {
+	docker.image("maven:3.8.5-openjdk-11-slim") {
 		stage('check java') {
 			sh "java -version"
 		}
