@@ -4,7 +4,7 @@ node {
 	stage('checkout') {
 		checkout scm
 	}
-	docker.image("maven:3.8.5-openjdk-11-slim").inside('-u root -v $HOME/.m2:/root/.m2') {
+	docker.image("maven:3.8.5-openjdk-11-slim").inside('--network="host" -u root -v $HOME/.m2:/root/.m2') {
 		stage('check java') {
 			sh "java -version"
 		}
