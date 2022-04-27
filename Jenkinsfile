@@ -2,7 +2,7 @@
 
 node {
 	stage('checkout') {
-                 deleteDir()
+                 cleanWs() 
 
                 // Checkout the repository
                 checkout scm 
