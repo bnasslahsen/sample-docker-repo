@@ -37,7 +37,7 @@ node {
 		}
 
 		stage('packaging') {
-			sh "./mvnw package -DskipTests"
+			sh "./mvnw install -DskipTests"
 			archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
 		}
 
