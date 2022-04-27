@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    active: test
+  main:
+   banner-mode: 'off'
+   lazy-initialization: true
+  jpa:
+    show-sql: false

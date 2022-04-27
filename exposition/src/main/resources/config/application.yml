@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: '@project.name@'
+  profiles:
+    active: '@spring.profiles.active@'
+  jpa:
+    open-in-view: false
+    #hibernate:
+      #ddl-auto: create
+  cache:
+    jcache:
+      config: classpath:cache/ehcache.xml
+logging:
+  level:
+    ROOT: INFO
+    org.springframework: INFO
+    fr.training.samples.spring.shop: INFO
+springdoc:
+  swagger-ui:
+    use-root-path: true

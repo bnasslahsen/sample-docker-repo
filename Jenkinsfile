@@ -1,9 +1,14 @@
 #!/usr/bin/env groovy
 
 node {
+	stage('clean workspace') {
+        cleanWs()
+	}
+
 	stage('checkout') {
 		checkout scm
 	}
+
 	docker.image("openjdk:11-jdk-slim").inside('--network="host" -u root -v $HOME/.m2:/root/.m2') {
 		stage('check java') {
 			sh "chmod +x mvnw"
@@ -35,22 +40,11 @@ node {
 			archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
 		}
 
-	}
-
-	def dockerImage
-	stage('build docker') {
-		//sh "sudo mkdir target"
-		sh "sudo cp -R ddd-sample-exposition/Dockerfile target/"
-		sh "sudo cp -R ddd-sample-exposition/target/* target/"
-
-		dockerImage = docker.build('bnasslahsen/jenkins-repo', 'target')
-	}
-
-	stage('publish docker') {
-		docker.withRegistry('https://registry.hub.docker.com', 'docker-login') {
-			dockerImage.push 'latest'
+		stage('publish docker') {
+			withCredentials([usernamePassword(credentialsId: 'docker-login', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_LOGIN')]) {
+				sh './mvnw -Djib.to.auth.username=${DOCKER_LOGIN} -Djib.to.auth.password=${DOCKER_PASSWORD} jib:build'
+			}
 		}
+
 	}
-
-
 }
