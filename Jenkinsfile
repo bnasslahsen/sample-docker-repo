@@ -4,13 +4,14 @@ node {
 	stage('checkout') {
 		checkout scm
 	}
-	docker.image("maven:3.8.5-openjdk-11-slim").inside('--network="host" -u root -v $HOME/.m2:/root/.m2') {
+	docker.image("docker pull openjdk:11-jdk-slim").inside('--network="host" -u root -v $HOME/.m2:/root/.m2') {
 		stage('check java') {
-			sh "java -version"
+			sh "chmod +x mvnw"
+			sh "./mvnw clean"
 		}
 
 		stage('clean') {
-			sh "mvn clean"
+			sh "./mvnw test"
 		}
 
 		stage('backend tests') {
@@ -25,12 +26,12 @@ node {
 
 		stage('quality analysis') {
 			withSonarQubeEnv('Sonar') {
-				sh "mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=bnasslahsen_sample-docker-repo"
+				sh "./mvnw org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=bnasslahsen_sample-docker-repo"
 			}
 		}
 
 		stage('packaging') {
-			sh "mvn package -DskipTests"
+			sh "./mvnw package -DskipTests"
 			archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
 		}
 
