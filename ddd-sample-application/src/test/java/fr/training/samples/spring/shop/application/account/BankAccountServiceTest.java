@@ -3,6 +3,7 @@ package fr.training.samples.spring.shop.application.account;
 import java.math.BigDecimal;
 import java.util.Optional;
 
+import fr.training.samples.spring.shop.SpringBootAppBase;
 import fr.training.samples.spring.shop.domain.account.BankAccount;
 import fr.training.samples.spring.shop.domain.account.Owner;
 import fr.training.samples.spring.shop.domain.account.repository.BankAccountRepositoryPort;
@@ -14,12 +15,9 @@ import fr.training.samples.spring.shop.domain.common.vo.AccountStatus;
 import fr.training.samples.spring.shop.domain.common.vo.Money;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertNotNull;
@@ -30,9 +28,7 @@ import static org.mockito.Mockito.when;
 /**
  * Simple JUnit Test for BankAccountService.
  */
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class BankAccountServiceTest {
+public class BankAccountServiceTest extends SpringBootAppBase {
 
 	private static final Money ZERO_BALANCE = Money.zero();
 

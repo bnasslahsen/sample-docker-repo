@@ -4,6 +4,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import fr.training.samples.spring.shop.SpringBootAppBase;
 import fr.training.samples.spring.shop.domain.customer.CustomerVO;
 import fr.training.samples.spring.shop.domain.customer.entity.CustomerEntity;
 import fr.training.samples.spring.shop.domain.customer.repository.CustomerRepository;
@@ -13,12 +14,9 @@ import fr.training.samples.spring.shop.domain.item.repository.ItemRepository;
 import fr.training.samples.spring.shop.domain.order.entity.OrderEntity;
 import fr.training.samples.spring.shop.domain.order.repository.OrderRepository;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -28,9 +26,7 @@ import static org.mockito.Mockito.when;
  * @author bnasslahsen
  *
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest
-public class OrderServiceImplTest {
+public class OrderServiceImplTest  extends SpringBootAppBase {
 
 	/**
 	 * orderManagement of type OrderManagement

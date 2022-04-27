@@ -2,7 +2,7 @@ spring:
   application:
     name: '@project.name@'
   profiles:
-    active: '@spring.profiles.active@'
+    active: local
   jpa:
     mapping-resources:
       - META-INF/common.orm.hbm.xml

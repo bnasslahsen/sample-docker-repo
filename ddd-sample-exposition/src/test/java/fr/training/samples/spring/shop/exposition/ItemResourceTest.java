@@ -1,37 +1,43 @@
 package fr.training.samples.spring.shop.exposition;
 
+import java.util.ArrayList;
+
+import fr.training.samples.spring.shop.application.item.ItemManagement;
 import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.MediaType;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.equalTo;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 /**
  * Unit Test exemple with mocked server
  */
-@RunWith(SpringRunner.class)
-@SpringBootTest
+@WebMvcTest
 @AutoConfigureMockMvc
-@EnableWebMvc
+@ComponentScan(basePackages = { "fr.training.samples.spring.shop" }, lazyInit = true)
 public class ItemResourceTest {
 
 	@Autowired
 	private MockMvc mvc;
 
+	@MockBean
+	private ItemManagement itemManagement;
+
 	@Test
 	public void getHelloSuccess() throws Exception {
-		mvc.perform(MockMvcRequestBuilders.get("/api/items").accept(MediaType.APPLICATION_JSON))
-				.andExpect(status().isOk()).andExpect(content().string(containsString("itemID")));
-	}
+		// Pass the mock object to mockito
+		Mockito.when(itemManagement.getAllItems()).thenReturn(new ArrayList<>());
+		mvc.perform(get("/api/items"))
+				.andExpect(status().isOk())
+				.andExpect(content().string(equalTo("[]")));	}
 
 }

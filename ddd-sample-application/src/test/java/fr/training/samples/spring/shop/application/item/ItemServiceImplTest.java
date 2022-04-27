@@ -3,16 +3,14 @@ package fr.training.samples.spring.shop.application.item;
 import java.util.Arrays;
 import java.util.List;
 
+import fr.training.samples.spring.shop.SpringBootAppBase;
 import fr.training.samples.spring.shop.domain.item.ItemVO;
 import fr.training.samples.spring.shop.domain.item.entity.ItemEntity;
 import fr.training.samples.spring.shop.domain.item.repository.ItemRepository;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -23,9 +21,7 @@ import static org.mockito.Mockito.when;
  * @author bnasslahsen
  *
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest
-public class ItemServiceImplTest {
+public class ItemServiceImplTest  extends SpringBootAppBase {
 
 	/**
 	 * itemManagement of type ItemManagement
