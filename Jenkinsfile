@@ -22,7 +22,7 @@ node {
 
 		stage('backend tests') {
 			try {
-				 sh "./mvnw test"
+				 sh "./mvnw test -T100"
 			} catch (err) {
 				throw err
 			} finally {
