@@ -16,7 +16,7 @@
 
 	<properties>
 		<java.version>11</java.version>
-		<jib-maven-plugin.version>3.1.4</jib-maven-plugin.version>
+		<jib-maven-plugin.version>3.2.1</jib-maven-plugin.version>
 		<jib.from.image>openjdk:8-jre-slim</jib.from.image>
 		<sonar.organization>bnasslahsen</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
