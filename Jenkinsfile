@@ -13,16 +13,16 @@ node {
 	docker.image("openjdk:11-jdk-slim").inside('--network="host" -u root -v $HOME/.m2:/root/.m2') {
 		stage('check java') {
 			sh "chmod +x mvnw"
-			sh "./mvnw clean"
+			sh "./mvnw -version"
 		}
 
 		stage('clean') {
-			sh "./mvnw test"
+			sh "./mvnw clean"
 		}
 
 		stage('backend tests') {
 			try {
-				 sh "mvn test"
+				 sh "./mvnw test"
 			} catch (err) {
 				throw err
 			} finally {
