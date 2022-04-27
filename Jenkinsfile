@@ -10,13 +10,12 @@ node {
 		}
 
 		stage('clean') {
-			sh "chmod +x mvnw"
-			sh "./mvnw clean"
+			sh "mvn clean"
 		}
 
 		stage('backend tests') {
 			try {
-				 sh "./mvnw test"
+				 sh "mvn test"
 			} catch (err) {
 				throw err
 			} finally {
@@ -26,12 +25,12 @@ node {
 
 		stage('quality analysis') {
 			withSonarQubeEnv('Sonar') {
-				sh "./mvnw org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=bnasslahsen_sample-docker-repo"
+				sh "mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=bnasslahsen_sample-docker-repo"
 			}
 		}
 
 		stage('packaging') {
-			sh "./mvnw package -DskipTests"
+			sh "mvn package -DskipTests"
 			archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
 		}
 
