@@ -43,7 +43,7 @@ node {
 
 		stage('publish docker') {
 			withCredentials([usernamePassword(credentialsId: 'docker-login', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_LOGIN')]) {
-				sh './mvnw -Djib.to.auth.username=${DOCKER_LOGIN} -Djib.to.auth.password=${DOCKER_PASSWORD} jib:build'
+				sh './mvnw -pl exposition -Djib.to.auth.username=${DOCKER_LOGIN} -Djib.to.auth.password=${DOCKER_PASSWORD} jib:build'
 			}
 		}
 
