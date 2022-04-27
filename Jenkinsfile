@@ -6,10 +6,8 @@ node {
 	}
 
 	stage('checkout') {
-                 cleanWs() 
-
-                // Checkout the repository
-                checkout scm 
+		// Checkout the repository
+		checkout scm
 	}
 
 	docker.image("openjdk:11-jdk-slim").inside('--network="host" -u root -v $HOME/.m2:/root/.m2') {
