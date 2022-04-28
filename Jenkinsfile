@@ -22,17 +22,17 @@ node {
 
 		stage('backend tests') {
 			try {
-				// sh "./mvnw test -T100"
+				 sh "./mvnw test -T100"
 			} catch (err) {
 				throw err
 			} finally {
-				// junit '**/target/surefire-reports/TEST-*.xml'
+				 junit '**/target/surefire-reports/TEST-*.xml'
 			}
 		}
 
 		stage('quality analysis') {
 			withSonarQubeEnv('Sonar') {
-				// sh "./mvnw org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=bnasslahsen_sample-docker-repo"
+				sh "./mvnw org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=bnasslahsen_sample-docker-repo"
 			}
 		}
 
